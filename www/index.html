@@ -138,13 +138,10 @@
                 <div data-role="panel" data-animate="false" data-position="left" data-position-fixed="true" data-display="push" class="side-menu">
                     <ul class="side-menu-list">
                         <li class="side-menu-header">
-                            <img class="side-menu-pic settings-link" src="img/avatar2.jpg">
+                            <img class="side-menu-pic settings-link" src="img/noticias/news4.jpg">
                         </li>
                         <li class="side-menu-date">14 de Octubre</li>
-                        <li class="side-menu-item about-link">Universidad</li>
-                        <li class="side-menu-item directory-link">Directorio</li>
-                        <li class="side-menu-item courses-link">Malla Académica</li>
-                        <li class="side-menu-item disable">Pronto más contenidos</li>
+                        <li class="side-menu-item disable">Pronto más secciones</li>
 
                     </ul>
                 </div><!-- /panel -->
@@ -215,7 +212,7 @@
                         Bienvenido
                         </div>
                         <div class="description-top description-text">
-                        De las siguientes facultades ¿De cuáles te gustaría recibir noticias, eventos y actividades?
+                        De las siguientes áreas ¿De cuáles te gustaría recibir notificaciones de nuevas licitaciones?
                         </div>
                     </div>
 
@@ -223,17 +220,36 @@
 
                     <!--Faculties-->
                     <div class="faculties-container">
-                        <ul class="faculties-list faculties-tutorial">
-                            <!-- CHECKED FACULTY EXAMPLE 
+                        <ul class="faculties-list faculties-tutorial"> 
                             <li>
-                                <div class="orange big-circle ss-check check-active"></div>
-                                <div class="faculty-text">Arquitectura, Arte y Diseño</div>
-                            </li> -->
+                                <div class="orange big-circle"></div>
+                                <div class="faculty-text">Consumibles</div>
+                            </li>
+                            <li>
+                                <div class="green big-circle"></div>
+                                <div class="faculty-text">Maquinaria</div>
+                            </li>
+                            <li>
+                                <div class="yellow big-circle"></div>
+                                <div class="faculty-text">Equipamiento</div>
+                            </li>
+                            <li>
+                                <div class="red big-circle"></div>
+                                <div class="faculty-text">Servicios</div>
+                            </li>
+                            <li>
+                                <div class="purple big-circle"></div>
+                                <div class="faculty-text">Mobiliario</div>
+                            </li>
+                            <li>
+                                <div class="blue big-circle"></div>
+                                <div class="faculty-text">Otros</div>
+                            </li>
                         </ul>
                     </div>
                     <div class="button-container">
                         <li class="left-button">Anterior</li>
-                        <li class="right-button faculties-next send-faculties">Siguiente</li>
+                        <li class="right-button faculties-next">Siguiente</li>
                     </div>
                 </div>
 
@@ -355,7 +371,7 @@
                         <div class="middle-icons">
                             <p class="title-text-header">Licitación</p>
                         </div>
-                        <li class="edit-icon ss-upload"></li>
+                        <!-- <li class="edit-icon ss-upload"></li> -->
                     </ul>
                 </div>
 
@@ -1343,19 +1359,6 @@
 
                         <!-- User Container --> 
                         <!-- La altura de los post no es la adecuada debido al tamaño de la fuente-->
-                        
-                        <div class ="post prof-link">
-                            <div class="post-config">
-                                <div class="post-icon">
-                                    <span class="ss-user"></span>
-                                </div>
-                                <div class="post-desc config-desc">
-                                    <div class="post-title">Perfil</div>
-                                    <div class="post-phone2">Editar foto de perfil</div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- User Container End-->
 
                         <!-- Home Container -->
                         <div class ="post faculty-set">
@@ -1365,53 +1368,11 @@
                                 </div>
                                 <div class="post-desc config-desc">
                                     <div class="post-title">Inicio</div>
-                                    <div class="post-phone2">Seleccionar facultades</div>
+                                    <div class="post-phone2">Seleccionar áreas</div>
                                 </div>
                             </div>
                         </div>
                         <!-- Home Container End -->
-
-                        <!-- Notifications Container -->
-                        <div class ="post notiset-link">
-                            <div class="post-config">
-                                <div class="post-icon">
-                                    <span class="ss-notifications"></span>
-                                </div>
-                                <div class="post-desc config-desc">
-                                    <div class="post-title">Notificaciones</div>
-                                    <div class="post-phone2">Editar alertas</div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Notifications Container End-->
-
-                        <!-- Nodo container -->
-                        <div class ="post nod-link">
-                            <div class="post-config"><!-- Es una variación de post-bottom, revisar la altura, la puse fixed pero no debiera comportarse así... consultar!!! -->
-                                <div class="post-icon">
-                                    <span class="ss-cell"></span>
-                                </div>
-                                <div class="post-desc config-desc">
-                                    <div class="post-title">NODO</div>
-                                    <div class="post-phone2">Acerca del servicio</div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Nodo Container End -->
-
-                        <!-- Feedback Container -->
-                        <div class ="post">
-                            <div class="post-config">
-                                <div class="post-icon red2">
-                                    <span class="ss-alert "></span>
-                                </div>
-                                <div class="post-desc config-desc">
-                                    <div class="post-title">Feedback</div>
-                                    <div class="post-phone2">Enviar sugerencias y fallos</div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Feedback Container End--> 
 
 
                         <!-- Campus Container
@@ -1621,6 +1582,10 @@
                         $(this).toggleClass("ss-check check-active");
                     });
 
+                    $(document).on('tap','.big-circle', function(e){
+                        $(this).toggleClass("ss-check check-active");
+                    });
+
                     $(document).on('tap','.circle-settings', function(e){          
                         $(this).toggleClass("ss-check check-active");
                     });
@@ -1714,7 +1679,7 @@
                     });
 
                     $(".faculties-next").click(function(){
-                        $.mobile.navigate("#sections", { transition: "none" });     
+                        $.mobile.navigate("#home", { transition: "none" });     
                     });                     
 
                     $(".send-faculties").click(function(){

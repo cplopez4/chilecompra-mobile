@@ -52,7 +52,7 @@ routing.login = function(uid,pass){
  //    });
 
     routing.feed(1, 20);
-    $.mobile.navigate("#home", { transition: "none" });   
+    $.mobile.navigate("#faculties", { transition: "none" });   
 }
 
 routing.logout = function(){
@@ -239,9 +239,11 @@ routing.feed = function(page, entries){
             $.each(data, function(index,value){
                 var color = switchColor(value.state);
                 var tag = splitAreas(value.areas);
+                var date = new Date(value.closed_at);
+                var dateStr = date.getDate().toString() + " de " + meses[date.getMonth()] + " de " + date.getFullYear().toString();
                 // var picture = value.picture == null ? 'img/noticias/news10.jpg' : value.picture;
 
-                $('#home .post-container').append("<div class='post post-link-news' data-id='"+ value.code +"'><div class='post-top'><div class='post-time'><div class='"+ color +" circle'></div><div class='time-content'>"+ tag +"</div> </div></div><div class='post-bottom'><div class='post-desc'><div class='post-title'>"+ value.name +"</div><div class='post-date'>"+ truncate(value.desc, 150) +"</div></div></div></div>");
+                $('#home .post-container').append("<div class='post post-link-news' data-id='"+ value.code +"'><div class='post-top'><div class='post-time'><div class='"+ color +" circle'></div><div class='time-content'>"+ tag +"</div> </div></div><div class='post-bottom'><div class='post-desc'><div class='post-title'>"+ value.name +"</div><div class='post-date'>"+ truncate(value.desc, 150) +"</div><div class='post-title post-title-date'>Fecha Cierre: <strong>"+ dateStr +"</strong></div></div></div></div>");
             });
             $("#home .feed-scroll-container").data("mobileIscrollview").resizeWrapper();
             $("#home .feed-scroll-container").data("mobileIscrollview").refresh();

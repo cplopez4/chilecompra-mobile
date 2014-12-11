@@ -492,6 +492,14 @@ input:-moz-placeholder.placeholder-fix {
 .news-body{
     margin: 30px 0px 0px;
 }
+.post-title.post-title-date{
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+.post-title.post-title-date strong{
+    font-family: "HelveticaLight45";
+    font-weight: normal;
+}
 .tender-item{
     background: #eaeaea;
     margin-right: 15px;
