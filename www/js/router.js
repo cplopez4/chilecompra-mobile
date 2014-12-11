@@ -237,10 +237,11 @@ routing.feed = function(page, entries){
         url: url,
         success: function(data){
             $.each(data, function(index,value){
-                var color = 'blue';
+                var color = switchColor(value.state);
+                var tag = splitAreas(value.areas);
                 // var picture = value.picture == null ? 'img/noticias/news10.jpg' : value.picture;
 
-                $('#home .post-container').append("<div class='post post-link-news' data-id='"+ value.code +"'><div class='post-top'><div class='post-time'><div class='"+ color +" circle'></div><div class='time-content'>Hace 10 minutos</div> </div></div><div class='post-bottom'><div class='post-desc'><div class='post-title'>"+ value.name +"</div><div class='post-date'>"+ truncate(value.desc, 60) +"</div></div></div></div>");
+                $('#home .post-container').append("<div class='post post-link-news' data-id='"+ value.code +"'><div class='post-top'><div class='post-time'><div class='"+ color +" circle'></div><div class='time-content'>"+ tag +"</div> </div></div><div class='post-bottom'><div class='post-desc'><div class='post-title'>"+ value.name +"</div><div class='post-date'>"+ truncate(value.desc, 150) +"</div></div></div></div>");
             });
             $("#home .feed-scroll-container").data("mobileIscrollview").resizeWrapper();
             $("#home .feed-scroll-container").data("mobileIscrollview").refresh();
@@ -259,6 +260,7 @@ routing.postFeed = function(post_id, element){
     var color = $(element).find('.circle').attr('class').split(' ')[0] + ' circle';
     $('#news .circle').attr('class', color);
     $('#news .news-title').text($(element).find('.post-title').text());
+    $('#news .time-content').text($(element).find('.time-content').text());
 
     var url = "http://api.mercadopublico.cl/servicios/v1/publico/licitaciones.jsonp?codigo="+ post_id +"&ticket=0942223B-FAE2-4060-950E-36D16916F7E2";
                                 
@@ -268,7 +270,19 @@ routing.postFeed = function(post_id, element){
         crossDomain: true,
         dataType: 'jsonp',
         success: function (data) {
+            $("#news .tender-items").empty();
+            var date = new Date(data.Listado[0].Fechas.FechaCierre);
+            var dateStr = date.getDate().toString() + " de " + meses[date.getMonth()] + " de " + date.getFullYear().toString();
+
             $('#news .news-body').html(data.Listado[0].Descripcion);
+            $('#news .code-item').html(data.Listado[0].CodigoExterno);
+            $('#news .date-item').html(dateStr);
+            $('#news .buyer-item').html(data.Listado[0].Comprador.NombreOrganismo);
+
+            $.each(data.Listado[0].Items.Listado, function(index, item){
+                console.log(item);
+                $("#news .tender-items").append("<div class='tender-item'><ul><li><strong>Producto:</strong> "+ item.NombreProducto +"</li><li><strong>Cantidad:</strong> "+ item.Cantidad +"</li><li><strong>Descripción:</strong> "+ item.Descripcion +"</li></ul></div>")
+            });
 
             $.mobile.navigate("#news", { transition: "none" });
         }
@@ -283,5 +297,68 @@ function truncate(sentence, charLength){
     return trimmedString + '...';
 }
 
+function switchColor(num){
+    switch(num){
+        //Publicada
+        case 5:
+            return 'green';
+            break;
+        //Cerrada
+        case 6:
+            return 'red';
+            break;
+        //Desierta
+        case 7:
+            return 'yellow';
+            break;
+        //Adjudicada
+        case 8:
+            return 'blue';
+            break;
+        //Revocada
+        case 15:
+            return 'purple';
+            break;
+        //Suspendida
+        case 16:
+            return 'dark-yellow';
+            break;
+        default:
+            return 'green';
+    }
+}
+
+function splitAreas(arr){
+    var areas = [];
+    var areasStr = '';
+
+    for(var i=0;i<arr.length;i++){
+        var areaF = arr[i].split(" / ")[2].toString();
+        
+        areas.push(areaF);
+    }
+
+    var unique = areas.filter(function(itm,i,a){
+        return i == a.indexOf(itm);
+    });
+
+    for(var k=0;k<unique.length;k++){
+
+        if(k == 2){
+            var catStr = (unique.length-2) == 1 ? 'categoría' : 'categorías';
+            areasStr += (' y '+ (unique.length-2).toString() + ' ' + catStr + ' más');
+            break;
+        }
+
+        areasStr += unique[k];
+
+        if(k != unique.length-1)
+            areasStr += ", ";
+    }
+
+    return areasStr;
+}
+
+var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
 
 
