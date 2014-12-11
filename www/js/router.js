@@ -19,37 +19,40 @@ routing.getPlatform = function(){
 }
 
 routing.login = function(uid,pass){
-	$.ajax({
-        type: 'POST',
-        data: { uid: uid },
-        crossDomain: true,
-        dataType: 'json',
-        url: 'http://173.255.204.104/api/login',
-        success: function(data){
-            storage.setItem("login", "true");
-            storage.setItem("name", data.first_name);
-            storage.setItem("lastname", data.last_name);
-            storage.setItem("id", data._id);
-            storage.setItem("profile_picture", data.profile_picture);
-            storage.setItem("fullname", data.first_name + " " + data.last_name);
+	// $.ajax({
+ //        type: 'POST',
+ //        data: { uid: uid },
+ //        crossDomain: true,
+ //        dataType: 'json',
+ //        url: 'http://173.255.204.104/api/login',
+ //        success: function(data){
+ //            storage.setItem("login", "true");
+ //            storage.setItem("name", data.first_name);
+ //            storage.setItem("lastname", data.last_name);
+ //            storage.setItem("id", data._id);
+ //            storage.setItem("profile_picture", data.profile_picture);
+ //            storage.setItem("fullname", data.first_name + " " + data.last_name);
 
-            if(storage.getItem("return") == "1"){
-                routing.getUserFaculties(storage.getItem("id"));
-                routing.feed(1, 20);
-                $.mobile.navigate("#home", { transition: "none" });
-            }
-            else{
-                storage.setItem("return", "1");
-                $.mobile.navigate("#faculties", { transition: "none" });
-            }
+ //            if(storage.getItem("return") == "1"){
+ //                routing.getUserFaculties(storage.getItem("id"));
+ //                routing.feed(1, 20);
+ //                $.mobile.navigate("#home", { transition: "none" });
+ //            }
+ //            else{
+ //                storage.setItem("return", "1");
+ //                $.mobile.navigate("#faculties", { transition: "none" });
+ //            }
 
-            routing.registerToken(storage.getItem("id"));
-            routing.getNotifications(15);
-        },
-        error: function(data){
-            alert('There was an error in your login');
-        }
-    });
+ //            routing.registerToken(storage.getItem("id"));
+ //            routing.getNotifications(15);
+ //        },
+ //        error: function(data){
+ //            alert('There was an error in your login');
+ //        }
+ //    });
+
+    routing.feed(1, 20);
+    $.mobile.navigate("#home", { transition: "none" });   
 }
 
 routing.logout = function(){
@@ -222,9 +225,9 @@ routing.feed = function(page, entries){
     var url = '';
 
     if(storage.getItem("id"))
-        url = 'http://173.255.204.104/api/pub_pag/' + storage.getItem("id") + '?page=' + page + '&items=' + entries + '';
+        url = 'http://chilecompra.cloudapp.net/api/tenders_pag/' + storage.getItem("id") + '?page=' + page + '&items=' + entries + '';
     else
-        url = 'http://173.255.204.104/api/pub_pag?page=' + page + '&items=' + entries + '';
+        url = 'http://chilecompra.cloudapp.net/api/tenders_pag?page=' + page + '&items=' + entries + '';
 
 
     $.ajax({
@@ -234,10 +237,10 @@ routing.feed = function(page, entries){
         url: url,
         success: function(data){
             $.each(data, function(index,value){
-                var color = value.color == null ? 'orange' : value.color;
-                var picture = value.picture == null ? 'img/noticias/news10.jpg' : value.picture;
+                var color = 'blue';
+                // var picture = value.picture == null ? 'img/noticias/news10.jpg' : value.picture;
 
-                $('#home .post-container').append("<div class='post post-link-news' data-id='"+ value._id +"'><div class='post-top'><div class='post-time'><div class='"+ value.color +" circle'></div><div class='time-content'>Hace 10 minutos</div> </div></div><div class='post-bottom'><div class='post-image'><img src='"+ picture +"'></div><div class='post-desc'><div class='post-title'>"+ value.title +"</div><div class='post-date'>"+ truncate(value.text, 60) +"</div></div></div></div>");
+                $('#home .post-container').append("<div class='post post-link-news' data-id='"+ value.code +"'><div class='post-top'><div class='post-time'><div class='"+ color +" circle'></div><div class='time-content'>Hace 10 minutos</div> </div></div><div class='post-bottom'><div class='post-desc'><div class='post-title'>"+ value.name +"</div><div class='post-date'>"+ truncate(value.desc, 60) +"</div></div></div></div>");
             });
             $("#home .feed-scroll-container").data("mobileIscrollview").resizeWrapper();
             $("#home .feed-scroll-container").data("mobileIscrollview").refresh();
@@ -250,41 +253,24 @@ routing.feed = function(page, entries){
 
 routing.postFeed = function(post_id, element){
 
-    $('#news .likes-link').removeClass('red2 liked');
+    // $('#news .likes-link').removeClass('red2 liked');
     $('#news .post-news').attr('data-id', post_id);
 
     var color = $(element).find('.circle').attr('class').split(' ')[0] + ' circle';
     $('#news .circle').attr('class', color);
     $('#news .news-title').text($(element).find('.post-title').text());
-    $('#news .post-image img').attr('src', $(element).find('.post-image img').attr('src'));
-    
-    $.ajax({
-        type: 'GET',
+
+    var url = "http://api.mercadopublico.cl/servicios/v1/publico/licitaciones.jsonp?codigo="+ post_id +"&ticket=0942223B-FAE2-4060-950E-36D16916F7E2";
+                                
+    $.ajax({    
+        url: url,
+        jsonp: "callback",
         crossDomain: true,
-        dataType: 'json',
-        url: "http://173.255.204.104/api/publications/" + post_id + "",
-        success: function(data){
-            // var color = data.color + ' circle';
-            // $('#news .circle').attr('class', color);
-            // $('#news .news-title').text(data.text);
-            // $('#news .post-image img').attr('src', data.picture);
-            
-            $('#news .news-body').html(data.text);
-            
-            //$('#news .facebook-number').text(data.text);
-
-            if(storage.getItem('id') && data.likers.indexOf(storage.getItem('id')) != -1){
-                $('#news .likes-link').addClass('red2 liked');
-            }
-
-            $('#news .likes-number').text(data.likes);
-            $('#news .comments-number').text(data.comments.length);
+        dataType: 'jsonp',
+        success: function (data) {
+            $('#news .news-body').html(data.Listado[0].Descripcion);
 
             $.mobile.navigate("#news", { transition: "none" });
-        },
-        error: function(data){
-            alert("Retrying to load post...");
-            $.ajax(this);
         }
     });
 }

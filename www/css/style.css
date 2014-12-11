@@ -44,19 +44,19 @@ input:-moz-placeholder.placeholder-fix {
     color: black;
 }*/
 ::-webkit-input-placeholder { /* WebKit browsers */
-    color:    #000;
+    color:    #121721;
     text-align: center;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    #000;
+   color:    #121721;
    text-align: center;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    #000;
+   color:    #121721;
    text-align: center;
 }
 :-ms-input-placeholder { /* Internet Explorer 10+ */
-   color:    #000;
+   color:    #121721;
    text-align: center;
 }
 
@@ -143,6 +143,9 @@ input:-moz-placeholder.placeholder-fix {
 }
 .generic{
     background: #808080;
+}
+.bottom-logo img{
+    width: 15%;
 }
 
 /* END COLORES */
@@ -477,7 +480,7 @@ input:-moz-placeholder.placeholder-fix {
     bottom: 0px; 
 }
 .news-title{
-    padding-left: 25px;
+    padding-left: 0px;
     font-family: "HelveticaMedium65";
     font-size: 18pt;
     letter-spacing: 0.36pt;
@@ -569,7 +572,7 @@ input:-moz-placeholder.placeholder-fix {
 }
 .horizontal-line2{
     height: 1px;
-    background-color: #FFF;
+    background-color: #121721;
     width: 264px;
     margin: 14px auto;
 }
@@ -645,11 +648,7 @@ input:-moz-placeholder.placeholder-fix {
     height: auto;
 }
 #login.background-login{
-    background: url("../img/login/login1_320.jpg") no-repeat center center fixed !important;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background-color: rgb(213,213,213) !important;
 }
 .login-container{
     padding-left: 40px;
@@ -676,6 +675,7 @@ input:-moz-placeholder.placeholder-fix {
     display: block;
     margin-left: auto;
     margin-right: 45px;
+    width: 80%;
 }
 .logo-right{
     float: right;
@@ -683,7 +683,9 @@ input:-moz-placeholder.placeholder-fix {
 }   
 .logo-right img{
     display: block;
-    margin-left: 45px;
+    margin-left: 30px;
+    margin-top: 17px;
+    width: 90%;
     margin-right: auto;
 }
 .ui-corner-all{
@@ -715,7 +717,7 @@ input:-moz-placeholder.placeholder-fix {
     bottom: 0;
     left: 0;
     right: 0;
-    color: #FFF;
+    color: #121721;
     text-align: center;
     font-family: "HelveticaLight45";
     font-size: 18pt;
@@ -770,6 +772,16 @@ input:-moz-placeholder.placeholder-fix {
 .middle-button-container{
     width: 100%;
     padding-top: 40px;
+}
+.left-button-container{
+    width: 50%;
+    padding-top: 40px;
+    float: left;
+}
+.right-button-container{
+    width: 50%;
+    padding-top: 40px;
+    float: right;
 }
 .middle-button {
     background-color: #FFF;
@@ -1268,7 +1280,7 @@ input:-moz-placeholder.placeholder-fix {
     }
     .horizontal-line2{
         height: 1px;
-        background-color: #FFF;
+        background-color: #121721;
         width: 130px;
         margin: 6px auto;
     }
@@ -1366,7 +1378,7 @@ input:-moz-placeholder.placeholder-fix {
     }
     .horizontal-line2{
         height: 1px;
-        background-color: #FFF;
+        background-color: #121721;
         width: 245px;
         margin: 21px auto;
     }
@@ -1731,7 +1743,7 @@ input:-moz-placeholder.placeholder-fix {
             margin-top: 18px;
         }
         .news-title{
-            padding-left: 21px;
+            padding-left: 0px;
             font-family: "HelveticaMedium65";
             font-size: 16pt;
             letter-spacing: 0.32pt;
@@ -1857,7 +1869,7 @@ input:-moz-placeholder.placeholder-fix {
         padding-left: 24px;
         margin-right: auto;
         width: 175px;
-        margin-top: 11px;
+        margin-top: 28px;
     }
     .ui-shadow-inset {
         box-shadow: none;
@@ -1896,7 +1908,7 @@ input:-moz-placeholder.placeholder-fix {
         bottom: 0px;
         left: 0;
         right: 0;
-        color: #FFF;
+        color: #121721;
         text-align: center;
         font-family: "HelveticaLight45";
         font-size: 16pt;
@@ -2081,7 +2093,7 @@ input:-moz-placeholder.placeholder-fix {
     }
     .horizontal-line2{
         height: 1px;
-        background-color: #FFF;
+        background-color: #121721;
         width: 130px;
         margin: 6px auto;
     }
@@ -2180,7 +2192,7 @@ input:-moz-placeholder.placeholder-fix {
     }
     .horizontal-line2{
         height: 1px;
-        background-color: #FFF;
+        background-color: #121721;
         width: 210px;
         margin: 18px auto;
     }
@@ -2673,7 +2685,7 @@ input:-moz-placeholder.placeholder-fix {
         padding-left: 20px;
         margin-right: auto;
         width: 150px;
-        margin-top: 9px;
+        margin-top: 25px;
     }
     .ui-shadow-inset {
         box-shadow: none;
@@ -2712,7 +2724,7 @@ input:-moz-placeholder.placeholder-fix {
         bottom: 27px;
         left: 0;
         right: 0;
-        color: #FFF;
+        color: #121721;
         text-align: center;
         font-family: "HelveticaLight45";
         font-size: 14pt;
@@ -2886,7 +2898,7 @@ input:-moz-placeholder.placeholder-fix {
     }
     .horizontal-line2{
         height: 1px;
-        background-color: #FFF;
+        background-color: #121721;
         width: 130px;
         margin: 6px auto;
     }
@@ -2987,7 +2999,7 @@ input:-moz-placeholder.placeholder-fix {
     }
     .horizontal-line2{
         height: 1px;
-        background-color: #FFF;
+        background-color: #121721;
         width: 140px;
         margin: 12px auto;
     }
@@ -3399,7 +3411,7 @@ input:-moz-placeholder.placeholder-fix {
             margin-top: 12px;
         }
         .news-title{
-            padding-left: 12px;
+            padding-left: 0px;
             font-family: "HelveticaMedium65";
             font-size: 9pt;
             letter-spacing: 0.18pt;
@@ -3522,10 +3534,10 @@ input:-moz-placeholder.placeholder-fix {
     }   
     .logo-right img{
         display: block;
-        margin-left: 27px;
+        margin-left: 10px;
         margin-right: auto;
-        width: 100px;
-        margin-top: 6px;
+        width: 130px;
+        margin-top: 14px;
     }
     .ui-shadow-inset {
         box-shadow: none;
@@ -3567,7 +3579,7 @@ input:-moz-placeholder.placeholder-fix {
         bottom: 18px;
         left: 0;
         right: 0;
-        color: #FFF;
+        color: #121721;
         text-align: center;
         font-family: "HelveticaLight45";
         font-size: 9pt;

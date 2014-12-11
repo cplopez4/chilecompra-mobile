@@ -4,21 +4,1943 @@
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" href="css/jquery-mobile.css" />
+        <link rel="stylesheet" href="css/jquery.mobile.iscrollview.css" />
+        <link rel="stylesheet" href="css/jquery.mobile.iscrollview-pull.css" />
+        <script src="js/jquery.js"></script>
+        <script>
+            $(document).on("mobileinit",function() {
+                $.mobile.autoInitializePage = false;
+            });
+        </script>
+        <script src="js/custom-jquery-mobile.js"></script>
+        <script src="js/jquery-mobile.js"></script>
+        <script src="js/iscroll.js"></script>
+        <script src="js/jquery.mobile.iscrollview.js"></script>
+        <script src="js/router.js"></script>
+        <script type="text/javascript" src="PushNotification.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/ss-social-circle.css" />
+        <link rel="stylesheet" type="text/css" href="css/ss-social-regular.css" />
+        <link rel="stylesheet" type="text/css" href="css/ss-standard.css" />
         <title>ChileCompra</title>
     </head>
     <body>
-        <div class="app">
-            <h1>PhoneGap</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+        <div class="system-os">
+            <!-- FEED PAGE -->
+            <div data-role="page" id="home">
+                <div data-role="header" class="header">
+                    <div class="top-bar"></div>
+                    <ul class="header-menu-list">
+                        <li class="menu-icon panel-icon ss-list"></li>
+                        <div class="middle-icons">
+                            <li class="header-icon ss-home active-icon home-link"></li>
+                            <li class="header-icon ss-calendar calendar-link"></li>
+                            <li class="header-icon ss-notifications notif-link"></li>
+                        </div>
+                        <li class="edit-icon ss-settings settings-link"></li>
+                    </ul>
+                </div>
+
+                <div data-role="content" class="feed-content">
+                    <div class="fade"></div>
+
+                    <div data-role="collapsible" data-collapsed="true" data-iscroll-fixed>
+                        <h4>Más reciente <div class="ss-navigatedown title-caret"></div>
+                        </h4>
+                        
+                        <ul data-role="listview">
+                            <li><a href="#">Actividades</a></li>
+                            <li><a href="#">Noticias</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- PICTURE BANNER -->
+                    <!-- <div class="picture-full" data-iscroll-fixed>
+                        <img src="img/destacados/destacado_text_640.jpg">
+                    </div> -->
+                    
+                    <div class="feed-scroll-container" data-iscroll>
+                        <div class="iscroll-pulldown">
+                            <span class="iscroll-pull-icon"></span>
+                            <span class="iscroll-pull-label"></span>
+                        </div>
+                        
+                        <div class="post-container">
+                        <!-- POST EVENT-->
+                        <!-- <div class="post post-link-event">
+                            <div class="post-top">
+                                <div class="post-time">
+                                    <div class="orange circle"></div>
+                                    <div class="time-content">Hace 5 minutos</div>                           
+                                </div>
+                            </div>
+                            <div class="post-bottom">
+                                <div class="post-image">
+                                    <img src="img/noticias/news8.jpg">
+                                </div>
+                                <div class="post-desc">
+                                    <div class="post-title">Workshop "Latitud Sur y Europa"</div>
+                                    <div class="post-date">14 de octubre - 19:00 hrs</div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- POST EVENT END -->
+
+                        <!-- POST NEWS-->
+                        <!-- <div class="post post-link-news">
+                            <div class="post-top">
+                                <div class="post-time">
+                                    <div class="green circle"></div>
+                                    <div class="time-content">Hace 10 minutos</div> 
+                                </div>
+                            </div>
+                            <div class="post-bottom">
+                                <div class="post-image">
+                                    <img src="img/noticias/news1.jpg">
+                                </div>
+                                <div class="post-desc">
+                                    <div class="post-title">Raúl Zurita: Escritura Material</div>
+                                    <div class="post-date">Esta exposición hace tangible o "material" la confluencia entre el poema y la...</div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- POST NEWS END -->
+
+                        <!-- POST USER-->
+                        <!-- <div class="post">
+                            <div class="post-top">
+                                <div class="post-time">
+                                    <div class="blue circle"></div>
+                                    <div class="time-content">Hace 14 minutos ( 1 )</div> 
+                                </div>
+                            </div>
+                            <div class="post-bottom">
+                                <div class="post-image">
+                                    <img class="pic-round" src="img/avatar.jpg">
+                                </div>
+                                <div class="post-desc">
+                                    <div class="post-title">Nicolás Garretón</div>
+                                    <div class="post-date">¿Qué libro de economía recomiendan?</div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- POST USER END -->
+                        </div>
+
+                        <div class="iscroll-pullup">
+                            <span class="iscroll-pull-icon"></span>
+                            <span class="iscroll-pull-label"></span>
+                        </div>
+                    </div>
+                </div> 
+
+                <div data-role="panel" data-animate="false" data-position="left" data-position-fixed="true" data-display="push" class="side-menu">
+                    <ul class="side-menu-list">
+                        <li class="side-menu-header">
+                            <img class="side-menu-pic settings-link" src="img/avatar2.jpg">
+                        </li>
+                        <li class="side-menu-date">14 de Octubre</li>
+                        <li class="side-menu-item about-link">Universidad</li>
+                        <li class="side-menu-item directory-link">Directorio</li>
+                        <li class="side-menu-item courses-link">Malla Académica</li>
+                        <li class="side-menu-item disable">Pronto más contenidos</li>
+
+                    </ul>
+                </div><!-- /panel -->
+
             </div>
+
+            <!-- END FEED PAGE -->
+
+            <!-- LOGIN PAGE -->
+            <div data-role="page" class="background-login" id="login">
+
+                <div data-role="content" class="news-content">
+                    
+                    <div class="login-container">
+
+                        <!-- Sección con los logos-->
+                        <div class="logo-container">
+                            <div class="logo-left">
+                                <img src="img/logo_chilecompra.png" alt="">
+                            </div>
+                            <div class="vertical-line"></div>
+                            <div class="logo-right">
+                                <img src="img/abre-cl_logo-blanco.png" alt="">
+                            </div>
+                        </div>
+                        <!-- logo end -->
+
+                        <!-- Sección con los inputs -->
+                        <div class="icontainer">
+                            <div class="in-container">
+                                <input type="text" placeholder="CORREO" name="rut-id" class="placeholder-fix" id="uid-input"/>
+                            </div>
+
+                            <div class="in-container">
+                                <input type="password" placeholder="CONTRASEÑA" name="pass-id" class="placeholder-fix" id="pass-input"/>
+                            </div>
+                            <!-- input end -->
+
+                            <!-- button -->
+                            <div class="middle-button-container">
+                                <div class="left-button login-btn">Iniciar Sesión</div>
+                                <div class="right-button">Registrarse</div>
+                            </div>
+                            <!-- button -->
+
+                        </div>
+
+                        <!-- info bottom -->
+                        <div class="info-bottom">
+                            <div class="bottom-logo"><img src="img/LogoZoo_negro.svg" /></div>    
+                            <p class="info-cursive">Hecho por <strong>Zoohash</strong></p>
+                        </div>    
+                        <!-- info bottom -->
+                    </div>                
+
+                </div> 
+
+            </div>
+
+            <!-- END LOGIN PAGE -->        
+
+            <!-- FACULTIES PAGE -->
+            <div data-role="page" id="faculties">
+                
+                <div data-role="content" class="news-content">
+                    <div class="top-container">
+                        <div class="title-top">
+                        Bienvenido
+                        </div>
+                        <div class="description-top description-text">
+                        De las siguientes facultades ¿De cuáles te gustaría recibir noticias, eventos y actividades?
+                        </div>
+                    </div>
+
+                    <div class="horizontal-line"></div>
+
+                    <!--Faculties-->
+                    <div class="faculties-container">
+                        <ul class="faculties-list faculties-tutorial">
+                            <!-- CHECKED FACULTY EXAMPLE 
+                            <li>
+                                <div class="orange big-circle ss-check check-active"></div>
+                                <div class="faculty-text">Arquitectura, Arte y Diseño</div>
+                            </li> -->
+                        </ul>
+                    </div>
+                    <div class="button-container">
+                        <li class="left-button">Anterior</li>
+                        <li class="right-button faculties-next send-faculties">Siguiente</li>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- END FACULTIES PAGE -->
+
+            <!-- NOTIFICATIONS NEWS PAGE -->
+            <div data-role="page" id="notifnews">
+
+                <div class="header">
+                    <div class="top-bar"></div>
+                    <ul class="header-menu-list">
+                        <a href="#" data-rel="back" data-transition="slide" data-direction="reverse">
+                            <li class="menu-icon ss-navigateleft"></li>
+                        </a>
+                        <div class="middle-icons">
+                            <p class="title-text-header">Notificaciones</p>
+                        </div>
+                    </ul>
+                </div>
+
+                <div data-role="content" class="news-content">
+                    
+                    <div class="post-container news-container news-fixed2">
+
+                        <!-- NOTIFICATION NEWS-->
+                        <div class="post post-news">
+                            <div class="post-top">
+                                <div class="post-time">
+                                    <div class="green circle"></div>
+                                    <div class="time-content">Hace 10 minutos</div> 
+                                </div>
+                            </div>
+                            <div class="post-bottom news-bottom">
+                                
+                                <div class="news-top">
+                                    <div class="post-image">
+                                        <img src="img/noticias/news1.jpg">
+                                    </div>
+                                    <div class="vert3 news-title">CFG Cine Chileno</div>
+                                </div>
+
+                                <div class="post-date news-body">Esta exposición hace tangible o “material” la confluencia entre el poema y la visualidad en la obra de Raúl Zurita, el punto donde cruza la escritura, la voz  y la imagen. Se exhibe el tránsito desde el texto a la visualidad, desde el poema al espacio geográfico, acompañado de la investigación que realiza el poeta para enfrentar sus proyectos. En esa exploración se puede observar un desplazamiento de la palabra poética que mientras avanza adquiere monumentalidad e ingresa al ámbito expresivo propio del land art, en el minuto en que el verso interviene materialmente el cielo y la tierra.
+                                </br></br>  
+                                En Escritura Material se observa a la palabra poética cuando es sometida a las fricciones del viento, la arena, el sol y otras condiciones climáticas. La palabra experimenta sobre sí las huellas del tiempo, tanto como las marcas del propio contexto histórico al que alude su significado. Es la paradoja que se produce entre la palabra que trasciende y a su vez se corroe por su propia existencia corpórea. La exposición busca acercarse al desafío que se enfrenta al leer la poesía de Raúl Zurita desde esa confluencia. Estos lectores deben someterse a condiciones de visibilidad extrema, como sobrevolar el Desierto de Atacama, leer los acantilados del Norte Grande desde una embarcación a varios metros de la costa u observar desde la tierra los cielos del Bronx (NY) los espautos de humo con que escribe un avión en lo alto. Por ello mismo estos lectores son al mismo tiempo espectadores ideales e imposibles. Ya no se trata de abrir las páginas de un libro, sino de convertir al cielo, al suelo y al paisaje chileno en soporte de intervenciones artísticas y de escritura.
+                                </br></br>
+                                En 1982 el autor realizó la escritura en los cielos de Nueva York. Posteriormente en 1993 realizó la Escritura en el Desierto de Atacama y, actualmente, tras la publicación de su libro Zurita (2011, Ediciones UDP), se establece un nuevo desafío poético y material, como es la escritura en los acantilados del norte de Chile.
+                                La exposición se despliega a través de tres ámbitos que dan a conocer las distintas escalas, soportes y puntos de vista del nuevo lector-espectador que propone el poeta: Escritura en el Cielo, Escritura en el Desierto y proyecto Escritura en los Acantilados.</div>
+                            </div>
+                        </div>
+                        <!-- NOTIFICATION NEWS END -->
+
+                    </div>
+                
+                </div> 
+
+            </div>
+            <!-- END NEWS PAGE -->
+
+
+            <!-- FACULTIES SETTING PAGE -->
+            <div data-role="page" id="facuset">
+
+                <div class="header">
+                    <div class="top-bar"></div>
+                    <ul class="header-menu-list">
+                        <a href="#" data-rel="back" data-transition="slide" data-direction="reverse">
+                            <li class="menu-icon ss-navigateleft"></li>
+                        </a>
+                        <div class="middle-icons">
+                            <p class="title-text-header">Inicio</p>
+                        </div>
+                    </ul>
+                </div>
+
+                <div data-role="content" class="news-content">
+
+                    <div class="post-container2">
+
+                        <div class="faculties-container2">
+                            
+                            <div class="description-text">
+                                <br>
+                                    De las siguientes facultades ¿De cuáles te gustaría recibir noticias, eventos y actividades?
+                                <br></br>
+                            </div>
+
+                            <ul class="faculties-list faculties-settings">
+                                <!-- CHECKED FACULTY EXAMPLE 
+                                <li>
+                                    <div class="orange big-circle ss-check check-active"></div>
+                                    <div class="faculty-text">Arquitectura, Arte y Diseño</div>
+                                </li> -->
+                            </ul>
+                            <br></br>
+                        </div>
+                    </div>
+
+                    <div class="button-container">
+                        <li class="left-button">Anterior</li>
+                        <li class="right-button send-faculties">Siguiente</li>
+                    </div>
+                
+                </div> 
+            </div>
+            <!-- END FACULTIES SETTING PAGE -->
+
+
+            <!-- NEWS PAGE --> <!-- arreglar contenedor-->
+            <div data-role="page" id="news">
+
+                <div class="header">
+                    <div class="top-bar"></div>
+                    <ul class="header-menu-list">
+                        <a href="#" data-rel="back" data-transition="slide" data-direction="reverse">
+                            <li class="menu-icon ss-navigateleft"></li>
+                        </a>
+                        <div class="middle-icons">
+                            <p class="title-text-header">Noticia</p>
+                        </div>
+                        <li class="edit-icon ss-upload"></li>
+                    </ul>
+                </div>
+
+                <div data-role="content" class="news-content">
+                    
+                    <div class="post-container news-container news-fixed">
+
+                        <!-- POST NEWS-->
+                        <div class="post post-news">
+                            <div class="post-top">
+                                <div class="post-time">
+                                    <div class="green circle"></div>
+                                    <div class="time-content">Hace 10 minutos</div> 
+                                </div>
+                            </div>
+                            <div class="post-bottom news-bottom">
+                                
+                                <div class="news-top">
+                                    <!-- <div class="post-image">
+                                        <img src="img/noticias/news1.jpg">
+                                    </div> -->
+                                    <div class="vert3 news-title">Raúl Zurita: Escritura Material</div>
+                                </div>
+
+                                <div class="post-date news-body">Esta exposición hace tangible o “material” la confluencia entre el poema y la visualidad en la obra de Raúl Zurita, el punto donde cruza la escritura, la voz  y la imagen. Se exhibe el tránsito desde el texto a la visualidad, desde el poema al espacio geográfico, acompañado de la investigación que realiza el poeta para enfrentar sus proyectos. En esa exploración se puede observar un desplazamiento de la palabra poética que mientras avanza adquiere monumentalidad e ingresa al ámbito expresivo propio del land art, en el minuto en que el verso interviene materialmente el cielo y la tierra.
+                                </br></br>  
+                                En Escritura Material se observa a la palabra poética cuando es sometida a las fricciones del viento, la arena, el sol y otras condiciones climáticas. La palabra experimenta sobre sí las huellas del tiempo, tanto como las marcas del propio contexto histórico al que alude su significado. Es la paradoja que se produce entre la palabra que trasciende y a su vez se corroe por su propia existencia corpórea. La exposición busca acercarse al desafío que se enfrenta al leer la poesía de Raúl Zurita desde esa confluencia. Estos lectores deben someterse a condiciones de visibilidad extrema, como sobrevolar el Desierto de Atacama, leer los acantilados del Norte Grande desde una embarcación a varios metros de la costa u observar desde la tierra los cielos del Bronx (NY) los espautos de humo con que escribe un avión en lo alto. Por ello mismo estos lectores son al mismo tiempo espectadores ideales e imposibles. Ya no se trata de abrir las páginas de un libro, sino de convertir al cielo, al suelo y al paisaje chileno en soporte de intervenciones artísticas y de escritura.
+                                </br></br>
+                                En 1982 el autor realizó la escritura en los cielos de Nueva York. Posteriormente en 1993 realizó la Escritura en el Desierto de Atacama y, actualmente, tras la publicación de su libro Zurita (2011, Ediciones UDP), se establece un nuevo desafío poético y material, como es la escritura en los acantilados del norte de Chile.
+                                La exposición se despliega a través de tres ámbitos que dan a conocer las distintas escalas, soportes y puntos de vista del nuevo lector-espectador que propone el poeta: Escritura en el Cielo, Escritura en el Desierto y proyecto Escritura en los Acantilados.</div>
+
+                            </div>
+                        </div>
+                        <!-- POST NEWS END -->
+
+                    </div>
+                
+                </div> 
+
+                <div class="footer footer-color-fix" data-role="footer" data-position="fixed">
+                    <ul class="footer-menu-list">
+                        <div class="footer-middle-icons">
+                            <div class="footer-icon-container">
+                                <li class="header-icon ss-social-regular ss-facebook facebook-link"></li>
+                                <p class="footer-number facebook-number">0</p>
+                            </div>
+                            <div class="footer-icon-container">
+                                <li class="header-icon ss-like likes-link"></li>
+                                <p class="footer-number likes-number">0</p>
+                            </div>
+                            <div class="footer-icon-container comments-link">
+                                <li class="header-icon ss-ellipsischat"></li>
+                                <p class="footer-number comments-number">0</p>
+                            </div>                        
+                        </div>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- END NEWS PAGE -->
+
+
+            <!-- EVENT PAGE --> <!-- arreglar contenedor-->
+            <div data-role="page" id="event">
+
+                <div class="header">
+                <div class="top-bar"></div> 
+                    <ul class="header-menu-list">
+                        <a href="#" data-rel="back" data-transition="slide" data-direction="reverse">
+                            <li class="menu-icon ss-navigateleft"></li>
+                        </a>
+                        <div class="middle-icons">
+                            <p class="title-text-header">Actividad</p>
+                        </div>
+                        <li class="edit-icon ss-upload"></li>
+                    </ul>
+                </div>
+
+                <div data-role="content" class="news-content">
+                    
+                    <div class="post-container news-container news-fixed">
+
+                        <!-- POST NEWS-->
+                        <div class="post post-news">
+                            <div class="post-top">
+                                <div class="post-time">
+                                    <div class="green circle"></div>
+                                    <div class="time-content">Hace 5 minutos</div> 
+                                </div>
+                            </div>
+                            <div class="post-bottom news-bottom">
+                                
+                                <div class="news-top">
+                                    <div class="post-image">
+                                        <img src="img/noticias/news8.jpg">
+                                    </div>
+                                        <div class="news-title vert3">Workshop "Latitud Sur y Europa"</div>
+                                </div>
+
+                                <div class="news-body post-date">
+                                    Invitamos a todos nuestros alumnos de 3° y 4° año a participar de esta gran oportunidad.
+                                    </br></br>  
+                                    Tienen hasta el 7 de octubre para la pre inscripción en Secretaría de Estudio.
+                                    </br></br>
+                                    Dudas a contacto@faad.udp.cl
+                                    
+                                    <ul class="activity-list">
+                                        <!-- Keys & Values -->
+
+                                        <!-- Date -->
+                                        <li class="activity-li">
+                                            <p class="title-li">Fecha</p>
+                                            <p class="value-li">14 de octubre de 2014</p>
+                                        </li>
+                                        <!-- Time -->
+                                        <li class="activity-li">
+                                            <p class="title-li">Horario</p>
+                                            <p class="value-li">19:00 hrs - 20:00 hrs</p>
+                                        </li>
+                                        <!-- Place -->
+                                        <li class="activity-li">
+                                            <p class="title-li">Dónde</p>
+                                            <p class="value-li">República 180</p>
+                                        </li>
+                                        <!-- Faculty -->
+                                        <li class="activity-li">
+                                            <p class="title-li">Facultad</p>
+                                            <p class="value-li">Arquitectura, Arte y Diseño</p>
+                                        </li>
+                                        <!-- Organizer -->
+                                        <li class="activity-li">
+                                            <p class="title-li">Organizador</p>
+                                            <p class="value-li">F. Arquitectura, Arte y Diseño</p>
+                                        </li>                                                                                                              
+                                    </ul>
+                                
+                                </div>
+                            </div>
+                        </div>
+                        <!-- POST NEWS END -->
+
+                    </div>
+                
+                </div> 
+
+                <div class="footer footer-color-fix" data-role="footer" data-position="fixed">
+                    <ul class="footer-menu-list">
+                        <div class="footer-middle-icons">
+                            <div class="footer-icon-container">
+                                <li class="header-icon ss-social-regular ss-facebook facebook-link"></li>
+                                <p class="footer-number">14</p>
+                            </div>
+                            <div class="footer-icon-container">
+                                <li class="header-icon ss-like likes-link"></li>
+                                <p class="footer-number">37</p>
+                            </div>
+                            <div class="footer-icon-container comments-link">
+                                <li class="header-icon ss-ellipsischat"></li>
+                                <p class="footer-number">12</p>
+                            </div>                        
+                        </div>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- END EVENT PAGE -->
+
+
+            <!-- NOTIFICATIONS PAGE -->
+            <div data-role="page" id="notifications">
+
+                <div data-role="header" class="header">
+                    <div class="top-bar"></div>
+                    <ul class="header-menu-list">
+                        <li class="menu-icon panel-icon ss-list"></li>
+                        <div class="middle-icons">
+                            <li class="header-icon ss-home home-link"></li>
+                            <li class="header-icon ss-calendar calendar-link"></li>
+                            <li class="header-icon ss-notifications notif-link active-icon">
+                                <!-- <span class="notif-circle">4</span> -->
+                            </li>
+                        </div>
+                        <li class="edit-icon ss-settings settings-link"></li>
+                    </ul>
+                </div>
+
+                <div data-role="content" class="news-content">
+                    <div class="fade"></div>
+
+                    <div class="title">
+                        <div class="title-content">
+                            <p class="title-text">Notificaciones</p>
+                            <!-- <div class="ss-delete title-caret"></div> -->
+                        </div>
+                    </div>
+                    
+                    <div class="post-container news-container">
+                        
+                        <!-- NOTIFICATION-->
+                        <!-- <div class='post post-notification'><div class='post-top'><div class='post-time'><div class='orange circle'></div><div class='time-content'>Hace segundos</div></div></div><div class='post-bottom'><div class='post-image'><img src='"+ value.picture +"'></div><div class='post-desc'><div class='post-title'>"+ value.title +"</div><div class='post-date'>"+ truncate(value.text, 60) +"</div></div></div></div> -->
+                        <!-- NOTIFICATION END -->
+
+                        <!-- NOTIFICATION-->
+                        <!-- <div class="post post-notification">
+                            <div class="post-top">
+                                <div class="post-time">
+                                    <div class="green circle"></div>
+                                    <div class="time-content">Hace 3 minutos</div>                           
+                                </div>
+                            </div>
+                            <div class="post-bottom">
+                                <div class="post-image">
+                                    <img src="img/noticias/news10.jpg">
+                                </div>
+                                <div class="post-desc">
+                                    <div class="post-title">CFG Cine Chileno</div>
+                                    <div class="post-date">Profesor Pablo Marín ausente</div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- NOTIFICATION END -->
+
+                        <!-- NOTIFICATION-->
+                        <!-- <div class="post post-notification">
+                            <div class="post-top">
+                                <div class="post-time">
+                                    <div class="purple circle"></div>
+                                    <div class="time-content">Hace 15 minutos</div>                           
+                                </div>
+                            </div>
+                            <div class="post-bottom">
+                                <div class="post-image">
+                                    <img src="img/noticias/news6.jpg">
+                                </div>
+                                <div class="post-desc">
+                                    <div class="post-title">Metro de Santiago</div>
+                                    <div class="post-date">La estación República está cerrada</div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- NOTIFICATION END -->
+
+                        <!-- NOTIFICATION-->
+                        <!-- <div class="post post-notification">
+                            <div class="post-top">
+                                <div class="post-time">
+                                    <div class="purple circle"></div>
+                                    <div class="time-content">Hace 23 minutos</div>                           
+                                </div>
+                            </div>
+                            <div class="post-bottom">
+                                <div class="post-image">
+                                    <img src="img/noticias/news9.jpg">
+                                </div>
+                                <div class="post-desc">
+                                    <div class="post-title">Carabineros de Chile</div>
+                                    <div class="post-date">Marcha estudiantil pasando por República</div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- NOTIFICATION END -->
+
+                    </div>
+
+                </div> 
+
+                <div data-role="panel" data-animate="false" data-position="left" data-position-fixed="true" data-display="push" class="side-menu">
+                    <ul class="side-menu-list">
+                        <li class="side-menu-header">
+                            <img class="side-menu-pic settings-link" src="img/avatar2.jpg">
+                        </li>
+                        <li class="side-menu-date">14 de octubre</li>
+                        <li class="side-menu-item about-link">Universidad</li>
+                        <li class="side-menu-item directory-link">Directorio</li>
+                        <li class="side-menu-item courses-link">Malla Académica</li>
+                        <li class="side-menu-item disable">Pronto más contenidos</li>
+
+                    </ul>
+                </div><!-- /panel -->
+
+            </div>
+            <!-- END NOTIFICATIONS PAGE -->
+
+
+
+            <!-- PROFILE CONFIG PAGE -->
+            <div data-role="page" id="prof">
+
+                <div class="header">
+                <div class="top-bar"></div> 
+                    <ul class="header-menu-list">
+                        <a href="#" data-rel="back" data-transition="slide" data-direction="reverse">
+                            <li class="menu-icon ss-navigateleft"></li>
+                        </a>
+                        <div class="middle-icons">
+                            <p class="title-text-header">Perfil</p>
+                        </div>
+                    </ul>
+                </div>
+
+                <div data-role="content" class="news-content">
+                    
+                    <!-- User config container -->
+                    <div class="post-container news-container">
+                        
+                        <div class ="post">
+                            <div class="post-config">
+                                <div class="post-image2">
+                                    <img class="pic-round" src="img/avatar2.jpg">
+                                </div>
+                                <div class="post-desc config-desc">
+                                    <div class="post-title">Perfil</div>
+                                    <div class="post-phone2">Editar foto de perfil</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- END PROFILE CONFIG PAGE -->
+
+
+
+            <!-- COMMENTS PAGE -->
+            <div data-role="page" id="comments">
+
+                <div class="header">
+                <div class="top-bar"></div> 
+                    <ul class="header-menu-list">
+                        <a href="#" data-rel="back" data-transition="slide" data-direction="reverse">
+                            <li class="menu-icon ss-navigateleft"></li>
+                        </a>
+                        <div class="middle-icons">
+                            <p class="title-text-header">Comentar</p>
+                        </div>
+                        <li class="edit-icon ss-refresh refresh-link"></li>
+                    </ul>
+                </div>
+
+                <div data-role="content" class="news-content">
+                    
+                    <div class="post-container news-container comments-container" pub-id="">
+                        <!-- Original Poster comment container -->
+                        <!-- <div class="post">
+                            <div class="post-top">
+                                <div class="post-time">
+                                    <div class="blue circle"></div>
+                                    <div class="time-content">Hace 5 minutos</div> 
+                                </div>
+                            </div>
+                            <div class="post-bottom">
+                                <div class="post-image">
+                                    <img class="pic-round" src="img/avatar.jpg">
+                                </div>
+                                <div class="post-desc">
+                                    <div class="post-title">Nicolás Garretón</div>
+                                    <div class="post-date">¿Qué libro de economía recomiendan?</div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- OP comment container END-->
+
+                        <!-- User comment container -->
+                        <!-- <div class="post">
+                            <div class="post-top">
+                                <div class="post-time">
+                                    <div class="green circle"></div>
+                                    <div class="time-content">Hace 2 minutos</div> 
+                                </div>
+                            </div>
+                            <div class="post-bottom">
+                                <div class="post-image">
+                                    <img class="pic-round" src="img/avatar3.jpg">
+                                </div>
+                                <div class="post-desc">
+                                    <div class="post-title">Camilo Barbados</div>
+                                    <div class="post-date">Un libro que te puede ayudar es "Introducción a la Economía de Mochón y Becker." Es largo pero tú eliges los capítulos que te interesa leer.</div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- User comment container END-->
+
+                        <!-- User comment container -->
+                        <!-- <div class="post">
+                            <div class="post-top">
+                                <div class="post-time">
+                                    <div class="red circle"></div>
+                                    <div class="time-content">Hace segundos</div> 
+                                </div>
+                            </div>
+                            <div class="post-bottom">
+                                <div class="post-image">
+                                    <img class="pic-round" src="img/avatar2.jpg">
+                                </div>
+                                <div class="post-desc">
+                                    <div class="post-title">Marcelo Sotomayor</div>
+                                    <div class="post-date">Te recomiendo "Nosotros, los mercados" de Daniel Lecalle. Lo puedes encontrar en la biblioteca. Saludos.
+                                    <br></br>
+                                        <div class="helvmed red2">
+                                            <a class="red2">Editar</a> - <a class="red2">Borrar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- User comment container END-->
+                    </div>
+                        <!-- Commentary Bar Container End --> 
+                    <div class="low-bar">    
+                        <div class="comment-bar">
+                            <div class="mini-pic-container">
+                                <img class="mini-pic-round" src="img/avatar2.jpg"/>
+                            </div>
+                            <div class="send-container helvmed">
+                                <a id="send-comment">Enviar</a>
+                            </div>
+                            <div class="in-comment">
+                                <input id="comment-text" type="text" placeholder="Escribe un comentario..."/>
+                            </div>
+                        </div>
+                    </div>   
+                        <!-- Commentary Bar Container End -->
+                </div>
+            </div>
+            <!-- END COMMENTS PAGE -->
+
+
+
+            <!-- NODO PAGE -->
+            <div data-role="page" id="nod">
+
+                <div class="header">
+                <div class="top-bar"></div> 
+                    <ul class="header-menu-list">
+                        <a href="#" data-rel="back" data-transition="slide" data-direction="reverse">
+                            <li class="menu-icon ss-navigateleft"></li>
+                        </a>
+                        <div class="middle-icons">
+                            <p class="title-text-header">Acerca de NODO</p>
+                        </div>
+                    </ul>
+                </div>
+
+                <div data-role="content" class="news-content">
+                    
+                    <div class="post-container2">
+                        
+                        <!-- ABOUT NODO-->
+                        <div class="post">
+
+                            <div class="post-bottom news-bottom">
+                                <div class="news-about">
+                                    <em class="helvmed">NODO - Servicio de información movil.</em>
+                                    Herramienta de notificación, comunicación y promoción entre universidades y sus alumnos.
+                                    </br></br>  
+                                    Facilitamos el acceso a una moderna plataforma de comunicación móvil a las instituciones de educación superior.
+                                    </br></br>
+                                    Queremos seguir conectando universidades; escríbenos o visítanos para seguir expandiendo nuestra red: <em class="helvmed"><em class="red2">contacto@nodoapp.com</em>, Eliodoro Yañez 2712, of. 2, Providencia.
+                                    <em class="red2">www.nodoapp.com</em></em>
+                                    </br></br>
+                                    Comenta y valoriza nuestro servicio y aplicación en la <em class="red2 helvmed">App Store</em>.
+                                    </br></br>
+                                    <em class="helvmed">NODO App Ltda.</em> 2014. Todos los derechos reservados. Santiago de Chile.
+                                    </br></br>
+                                    <em class="helvmed">Versión 1.0</em>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ABOUT NODO -->
+
+                        <!-- Buttons -->
+                        <div class="button-container button-container-middle">
+                            <li class="left-button">Sitio Web</li>
+                            <li class="right-button">Cerrar Sesión</li>
+                        </div>
+                        <!-- Buttons end -->
+                    </div>                  
+                </div> 
+
+            </div>
+            <!-- END NODO PAGE -->
+
+
+            <!-- ABOUT PAGE -->
+            <div data-role="page" id="about">
+
+                <div data-role="header" class="header">
+                    <div class="top-bar"></div>
+                    <ul class="header-menu-list">
+                        <li class="menu-icon panel-icon ss-list"></li>
+                        <div class="middle-icons">
+                            <li class="header-icon ss-home home-link"></li>
+                            <li class="header-icon ss-calendar calendar-link"></li>
+                            <li class="header-icon ss-notifications notif-link"></li>
+                        </div>
+                        <li class="edit-icon ss-settings settings-link"></li>
+                    </ul>
+                </div>
+
+                <div data-role="content" class="news-content">
+                    <div class="fade"></div>
+                    
+                    <div data-role="collapsible" data-collapsed="true">
+                        <h4>Modelo Educativo
+                            <div class="ss-navigatedown title-caret"></div>
+                        </h4>
+                        
+                        <ul data-role="listview" class="collapsible-list">
+                            <li class="active" data-id="0"><a href="#">Modelo Educativo</a></li>
+                            <li data-id="1"><a href="#">Acreditación</a></li>
+                            <li data-id="2"><a href="#">Institucionalidad</a></li>
+                            <li data-id="3"><a href="#">Reseña Histórica</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- PICTURE BANNER -->
+                    <div class="picture-full">
+                        <img src="img/universidad/modelo_educativo.jpg">
+                    </div>
+                    
+                    <div class="post-container">
+                        
+                        <!-- POST NEWS-->
+                        <div class="post">
+
+                            <div class="post-bottom news-bottom">
+                                <div class="news-about">
+                                    <em class="helvmed">Modelo Educativo</em>
+                                    </br></br>  
+                                    La Universidad Diego Portales tiene como proyecto académico formar profesionales con un alto dominio teórico y práctico de su futuro campo laboral y disciplinario, y comprometidos con el desarrollo social, económico y cultural del país. Los principales lineamientos de nuestro modelo educativo son:
+                                    </br></br>  
+                                    La Universidad proporciona una formación competente y profesional, con fuertes bases conceptuales, centrada en los estudiantes, para que estos desarrollen conocimientos, habilidades y actitudes que les faciliten el desempeño laboral a lo largo de la vida. Es decir, las carreras y los programas proporcionan herramientas conceptuales, destrezas y actitudes fundamentales que se integran y permiten ingresar, adaptarse y progresar en contextos de trabajo cada vez más dinámicos. 
+                                    </br></br>
+                                    <em class="helvmed">Conexión entre docencia e investigación</em>
+                                    </br></br>
+                                    En la UDP la investigación tiene un papel clave en la formación de los estudiantes, puesto que contribuye a fortalecer su inquietud y rigor intelectual, su capacidad de razonamiento y la calidad del saber transmitido. La UDP busca que su docencia se nutra del avance experimentado en las diversas disciplinas y profesiones, y en especial de la investigación académica desarrollada por sus profesores. También pretende que los estudiantes adquieran destrezas para analizar y utilizar la producción científica e intelectual contemporánea. 
+                                    </br></br>
+                                    <em class="helvmed">Formación integral y comprometida con el desarrollo del país</em> 
+                                    </br></br>
+                                    La Universidad proporciona oportunidades formativas que van más allá del saber propio de cada disciplina o profesión, proveyendo una formación integral y comprometida con los desafíos del entorno. Como lo demuestran las universidades más prestigiosas del mundo, una formación universitaria es ante todo una formación amplia e integradora que faculta a los estudiantes para comprender el mundo y posicionarse reflexivamente en él. La Universidad Diego Portales ofrece a los estudiantes oportunidades de aprendizaje transversal y en diálogo con alumnos de diversas disciplinas, para formar ciudadanos comprometidos y con una vasta comprensión de los temas relevantes para el país. 
+                                    </br></br>
+                                    <em class="helvmed">Internacionalización</em> 
+                                    </br></br>
+                                    La UDP promueve actividades de intercambio con universidades extranjeras con la intención de exponer a académicos y estudiantes a experiencias formativas y de colaboración de primer nivel. Facilita las actividades de internacionalización a través de un conjunto de estrategias (convalidación de cursos, pasantías, acceso a tutorías), las que se suman a una gradual internacionalización del currículo, otorgando oportunidades para integrar una mirada global en la formación profesional. 
+                                    </br></br>
+                                    <em class="helvmed">Educación contínua</em>
+                                    </br></br>
+                                    La Universidad Diego Portales concibe el proceso formativo como un proceso permanente y por ello ofrece oportunidades para la especialización a través de programas de postgrado y postítulos que permiten el desarrollo profesional y académico de los estudiantes a lo largo de la vida profesional. La UDP provee una formación inicial (pregrado) y una formación avanzada (postgrado), facilita el tránsito de estudiantes que ya han completado una licenciatura hacia programas de magíster y doctorado, y promueve esta articulación sinérgica entre pregrado y postgrado, sin renunciar a sus particularidades.
+                                    </br></br>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- POST NEWS END -->
+
+                    </div>
+
+                </div> 
+
+                <div data-role="panel" data-animate="false" data-position="left" data-position-fixed="true" data-display="push" class="side-menu">
+                    <ul class="side-menu-list">
+                        <li class="side-menu-header">
+                            <img class="side-menu-pic settings-link" src="img/avatar2.jpg">
+                        </li>
+                        <li class="side-menu-date">14 de octubre</li>
+                        <li class="side-menu-item about-link">Universidad</li>
+                        <li class="side-menu-item directory-link">Directorio</li>
+                        <li class="side-menu-item courses-link">Malla Académica</li>
+                        <li class="side-menu-item disable">Pronto más contenidos</li>
+
+                    </ul>
+                </div><!-- /panel -->
+
+            </div>
+
+            <!-- END ABOUT PAGE -->
+
+
+            <!-- DIRECTORY PAGE -->
+            <div data-role="page" id="directory">
+
+                <div data-role="header" class="header">
+                    <div class="top-bar"></div>
+                    <ul class="header-menu-list">
+                        <li class="menu-icon panel-icon ss-list"></li>
+                        <div class="middle-icons">
+                            <li class="header-icon ss-home home-link"></li>
+                            <li class="header-icon ss-calendar calendar-link"></li>
+                            <li class="header-icon ss-notifications notif-link"></li>
+                        </div>
+                        <li class="edit-icon ss-settings settings-link"></li>
+                    </ul>
+                </div>
+
+                <div data-role="content" class="news-content">
+                    <div class="fade"></div>
+                    
+                    <div data-role="collapsible" data-collapsed="true">
+                        <h4>Directorio telefónico
+                            <div class="ss-navigatedown title-caret"></div>
+                        </h4>
+                        
+                        <ul data-role="listview">
+                            <li><a href="#">Directorio de Profesores</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="post-container news-container">
+                        
+                        <!-- FACULTY-->
+                        <div class="post post-link-faculty" data-id="0">
+                            <div class="post-top">
+                                <div class="post-time">
+                                    <div class="orange circle"></div>
+                                    <div class="time-content email-content"><a href="mailto:faad@udp.cl">faad@udp.cl</a></div>                           
+                                </div>
+                            </div>
+                            <div class="post-bottom">
+                                <div class="post-image">
+                                    <img src="img/facultades/arte.jpg">
+                                </div>
+                                <div class="post-desc">
+                                    <div class="post-title">Arquitectura, Arte y Diseño</div>
+                                    <div class="post-date geo-content"><a href="maps:q=República 180, Santiago, Chile">Av. República 180</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FACULTY END -->
+
+                        <!-- FACULTY-->
+                        <div class="post post-link-faculty" data-id="1">
+                            <div class="post-top">
+                                <div class="post-time">
+                                    <div class="red circle"></div>
+                                    <div class="time-content email-content"><a href="mailto:c.sociales@udp.cl">c.sociales@udp.cl</a></div>                           
+                                </div>
+                            </div>
+                            <div class="post-bottom">
+                                <div class="post-image">
+                                    <img src="img/facultades/sociales.jpg">
+                                </div>
+                                <div class="post-desc">
+                                    <div class="post-title">Ciencias Sociales e Historia</div>
+                                    <div class="post-date geo-content"><a href="maps:q=Ejército 333, Santiago, Chile">Av. Ejército 333</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FACULTY END -->
+
+                        <!-- FACULTY-->
+                        <div class="post post-link-faculty" data-id="2">
+                            <div class="post-top">
+                                <div class="post-time">
+                                    <div class="green circle"></div>
+                                    <div class="time-content email-content"><a href="mailto:c.yletras@udp.cl">c.yletras@udp.cl</a></div>                           
+                                </div>
+                            </div>
+                            <div class="post-bottom">
+                                <div class="post-image">
+                                    <img src="img/facultades/com.jpg">
+                                </div>
+                                <div class="post-desc">
+                                    <div class="post-title">Comunicación y Letras</div>
+                                    <div class="post-date geo-content"><a href="maps:q=Vergara 240, Santiago, Chile">Vergara 240</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FACULTY END -->
+
+                        <!-- FACULTY-->
+                        <div class="post post-link-faculty" data-id="3">
+                            <div class="post-top">
+                                <div class="post-time">
+                                    <div class="purple circle"></div>
+                                    <div class="time-content email-content"><a href="mailto:derecho@udp.cl">derecho@udp.cl</a></div>                           
+                                </div>
+                            </div>
+                            <div class="post-bottom">
+                                <div class="post-image">
+                                    <img src="img/facultades/derecho.jpg">
+                                </div>
+                                <div class="post-desc">
+                                    <div class="post-title">Derecho</div>
+                                    <div class="post-date geo-content"><a href="maps:q=Santa Clara 797, Santiago, Chile">Av. Santa Clara 797</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FACULTY END -->
+
+                        <!-- FACULTY-->
+                        <div class="post post-link-faculty" data-id="4">
+                            <div class="post-top">
+                                <div class="post-time">
+                                    <div class="dark-blue circle"></div>
+                                    <div class="time-content email-content"><a href="mailto:f.educacion@udp.cl">f.economia@udp.cl</a></div>                           
+                                </div>
+                            </div>
+                            <div class="post-bottom">
+                                <div class="post-image">
+                                    <img src="img/facultades/economia.jpg">
+                                </div>
+                                <div class="post-desc">
+                                    <div class="post-title">Economía y Empresa</div>
+                                    <div class="post-date geo-content"><a href="maps:q=Santa Clara 797, Huechuraba, Santiago, Chile">Av. Santa Clara 797, Huechuraba</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FACULTY END -->
+
+                        <!-- FACULTY-->
+                        <div class="post post-link-faculty" data-id="5">
+                            <div class="post-top">
+                                <div class="post-time">
+                                    <div class="dark-yellow circle"></div>
+                                    <div class="time-content email-content"><a href="mailto:f.educacion@udp.cl">f.educacion@udp.cl</a></div>                           
+                                </div>
+                            </div>
+                            <div class="post-bottom">
+                                <div class="post-image">
+                                    <img src="img/facultades/edu.jpg">
+                                </div>
+                                <div class="post-desc">
+                                    <div class="post-title">Educación</div>
+                                    <div class="post-date geo-content"><a href="maps:q=Vergara 210, Santiago, Chile">Vergara 210</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FACULTY END -->
+
+                        <!-- FACULTY-->
+                        <div class="post post-link-faculty" data-id="6">
+                            <div class="post-top">
+                                <div class="post-time">
+                                    <div class="cyan circle"></div>
+                                    <div class="time-content email-content"><a href="mailto:f.educacion@udp.cl">f.ingenieria@udp.cl</a></div>                           
+                                </div>
+                            </div>
+                            <div class="post-bottom">
+                                <div class="post-image">
+                                    <img src="img/facultades/ing.jpg">
+                                </div>
+                                <div class="post-desc">
+                                    <div class="post-title">Ingeniería</div>
+                                    <div class="post-date geo-content"><a href="maps:q=Ejercito 441, Santiago, Chile">Av. Ejército 441</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FACULTY END -->
+
+                        <!-- FACULTY-->
+                        <div class="post post-link-faculty" data-id="7">
+                            <div class="post-top">
+                                <div class="post-time">
+                                    <div class="blue circle"></div>
+                                    <div class="time-content email-content"><a href="mailto:f.educacion@udp.cl">f.medicina@udp.cl</a></div>                           
+                                </div>
+                            </div>
+                            <div class="post-bottom">
+                                <div class="post-image">
+                                    <img src="img/facultades/med.jpg">
+                                </div>
+                                <div class="post-desc">
+                                    <div class="post-title">Medicina</div>
+                                    <div class="post-date geo-content"><a href="maps:q=Ejercito 233, Santiago, Chile">Av. Ejército 233</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FACULTY END -->
+
+                        <!-- FACULTY-->
+                        <div class="post post-link-faculty" data-id="8">
+                            <div class="post-top">
+                                <div class="post-time">
+                                    <div class="yellow circle"></div>
+                                    <div class="time-content email-content"><a href="mailto:f.educacion@udp.cl">f.psicologia@udp.cl</a></div>                           
+                                </div>
+                            </div>
+                            <div class="post-bottom">
+                                <div class="post-image">
+                                    <img src="img/facultades/sico.jpg">
+                                </div>
+                                <div class="post-desc">
+                                    <div class="post-title">Psicología</div>
+                                    <div class="post-date geo-content"><a href="maps:q=Vergara 275, Santiago, Chile">Vergara 275</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FACULTY END -->
+
+                        <!-- FACULTY-->
+                        <div class="post post-link-faculty" data-id="9">
+                            <div class="post-top">
+                                <div class="post-time">
+                                    <div class="light-blue circle"></div>
+                                    <div class="time-content email-content"><a href="mailto:f.educacion@udp.cl">f.salud@udp.cl</a></div>                           
+                                </div>
+                            </div>
+                            <div class="post-bottom">
+                                <div class="post-image">
+                                    <img src="img/facultades/med.jpg">
+                                </div>
+                                <div class="post-desc">
+                                    <div class="post-title">Salud y Odontología</div>
+                                    <div class="post-date geo-content"><a href="maps:q=Ejercito 219, Santiago, Chile">Av. Ejército 219</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FACULTY END -->
+
+                        <!-- FACULTY-->
+                        <div class="post post-link-faculty" data-id="10">
+                            <div class="post-top">
+                                <div class="post-time">
+                                    <div class="generic circle"></div>
+                                    <div class="time-content email-content"><a href="mailto:f.educacion@udp.cl">administracion@udp.cl</a></div>                           
+                                </div>
+                            </div>
+                            <div class="post-bottom">
+                                <div class="post-image">
+                                    <img src="img/facultades/central.jpg">
+                                </div>
+                                <div class="post-desc">
+                                    <div class="post-title">Administración</div>
+                                    <div class="post-date geo-content"><a href="maps:q=Manuel Rodriguez Sur 415, Santiago, Chile">Av. Manuel Rodríguez Sur 415</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FACULTY END -->
+
+                    </div>
+
+                </div> 
+
+                <div data-role="panel" data-animate="false" data-position="left" data-position-fixed="true" data-display="push" class="side-menu">
+                    <ul class="side-menu-list">
+                        <li class="side-menu-header">
+                            <img class="side-menu-pic settings-link" src="img/avatar2.jpg">
+                        </li>
+                        <li class="side-menu-date">14 de octubre</li>
+                        <li class="side-menu-item about-link">Universidad</li>
+                        <li class="side-menu-item directory-link">Directorio</li>
+                        <li class="side-menu-item courses-link">Malla Académica</li>
+                        <li class="side-menu-item disable">Pronto más contenidos</li>
+
+                    </ul>
+                </div><!-- /panel -->
+
+            </div>
+
+            <!-- END DIRECTORY PAGE -->
+
+
+            <!-- DIRECTORY SHOW PAGE -->
+            <div data-role="page" id="directory-show">
+
+                <div data-role="header" class="header">
+                    <div class="top-bar"></div>
+                    <ul class="header-menu-list">
+                        <a href="#" data-rel="back" data-transition="slide" data-direction="reverse">
+                            <li class="menu-icon ss-navigateleft"></li>
+                        </a>
+                        <div class="middle-icons directory-title">
+                            <p class="title-text-header">Arquitectura, Arte y Diseño</p>
+                        </div>
+                    </ul>
+                </div>
+
+                <div data-role="content" class="news-content">
+                    
+                    <!-- User config container -->
+                    <div class="post-container news-container">
+
+                        <!-- Directory Item --> 
+                        <div class ="post">
+                            <div class="post-top pad-set">
+                                <div class="post-time">
+                                    <div class="orange circle"></div>
+                                    <div class="time-content"><a href="mailto:arquitectura@udp.cl">arquitectura@udp.cl</a></div>                           
+                                </div>
+                            </div>
+                            <div class="directory-config">
+                                <div class="post-icon2">
+                                    <a href="tel:056226762727"><span class="ss-phone"></span></a>
+                                </div>
+                                <div class="post-desc">
+                                    <div class="post-title marg-set">Escuela de Arquitectura</div>
+                                    <div class="post-phone">+56 2 26762727</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Directory Item End-->
+
+                        <!-- Directory Item --> 
+                        <div class ="post">
+                            <div class="post-top pad-set">
+                                <div class="post-time">
+                                    <div class="orange circle"></div>
+                                    <div class="time-content"><a href="mailto:artesvisuales@udp.cl">artesvisuales@udp.cl</a></div>                           
+                                </div>
+                            </div>
+                            <div class="directory-config">
+                                <div class="post-icon2">
+                                    <a href="tel:056226762740"><span class="ss-phone"></span></a>
+                                </div>
+                                <div class="post-desc">
+                                    <div class="post-title marg-set">Escuela de Artes Visuales</div>
+                                    <div class="post-phone">+56 2 26762740</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Directory Item End-->
+
+                        <!-- Directory Item --> 
+                        <div class ="post">
+                            <div class="post-top pad-set">
+                                <div class="post-time">
+                                    <div class="orange circle"></div>
+                                    <div class="time-content"><a href="mailto:diseño@udp.cl">diseño@udp.cl</a></div>                           
+                                </div>
+                            </div>
+                            <div class="directory-config">
+                                <div class="post-icon2">
+                                    <a href="tel:056226762706"><span class="ss-phone"></span></a>
+                                </div>
+                                <div class="post-desc">
+                                    <div class="post-title marg-set">Escuela de Diseño</div>
+                                    <div class="post-phone">+56 2 26762706</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Directory Item End-->                                
+
+                    </div>
+
+                </div> 
+
+            </div>
+
+            <!-- END DIRECTORY SHOW PAGE -->
+
+
+            <!-- SETTINGS PAGE -->
+            <div data-role="page" id="settings">
+
+                <div data-role="header" class="header">
+                    <div class="top-bar"></div>
+                    <ul class="header-menu-list">
+                        <a href="#" data-rel="back" data-transition="slide" data-direction="reverse">
+                            <li class="menu-icon ss-navigateleft"></li>
+                        </a>
+                        <div class="middle-icons">
+                            <p class="title-text-header">Configuraciones</p>
+                        </div>
+                    </ul>
+                </div>
+
+                <div data-role="content" class="news-content">
+                    
+                    <!-- User config container -->
+                    <div class="settings-container">
+
+                        <!-- User Container --> 
+                        <!-- La altura de los post no es la adecuada debido al tamaño de la fuente-->
+                        
+                        <div class ="post prof-link">
+                            <div class="post-config">
+                                <div class="post-icon">
+                                    <span class="ss-user"></span>
+                                </div>
+                                <div class="post-desc config-desc">
+                                    <div class="post-title">Perfil</div>
+                                    <div class="post-phone2">Editar foto de perfil</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- User Container End-->
+
+                        <!-- Home Container -->
+                        <div class ="post faculty-set">
+                            <div class="post-config">
+                                <div class="post-icon">
+                                    <span class="ss-home"></span>
+                                </div>
+                                <div class="post-desc config-desc">
+                                    <div class="post-title">Inicio</div>
+                                    <div class="post-phone2">Seleccionar facultades</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Home Container End -->
+
+                        <!-- Notifications Container -->
+                        <div class ="post notiset-link">
+                            <div class="post-config">
+                                <div class="post-icon">
+                                    <span class="ss-notifications"></span>
+                                </div>
+                                <div class="post-desc config-desc">
+                                    <div class="post-title">Notificaciones</div>
+                                    <div class="post-phone2">Editar alertas</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Notifications Container End-->
+
+                        <!-- Nodo container -->
+                        <div class ="post nod-link">
+                            <div class="post-config"><!-- Es una variación de post-bottom, revisar la altura, la puse fixed pero no debiera comportarse así... consultar!!! -->
+                                <div class="post-icon">
+                                    <span class="ss-cell"></span>
+                                </div>
+                                <div class="post-desc config-desc">
+                                    <div class="post-title">NODO</div>
+                                    <div class="post-phone2">Acerca del servicio</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Nodo Container End -->
+
+                        <!-- Feedback Container -->
+                        <div class ="post">
+                            <div class="post-config">
+                                <div class="post-icon red2">
+                                    <span class="ss-alert "></span>
+                                </div>
+                                <div class="post-desc config-desc">
+                                    <div class="post-title">Feedback</div>
+                                    <div class="post-phone2">Enviar sugerencias y fallos</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Feedback Container End--> 
+
+
+                        <!-- Campus Container
+                        <div class ="post">
+                            <div class="post-config">
+                                <div class="post-icon">
+                                    <span class="ss-buildings"></span>
+                                </div>
+                                <div class="post-desc config-desc">
+                                    <div class="post-title">Facultades</div>
+                                    <div class="post-date">Seleccionar facultades</div>
+                                </div>
+                            </div>
+                        </div>
+                         Campus Container End--> 
+                        
+
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="button-container button-container-middle">
+                        <li class="left-button">Sitio Web</li>
+                        <li class="right-button logout-btn">Cerrar Sesión</li>
+                    </div>
+
+                </div> 
+
+            </div>
+
+            <!-- END SETTINGS PAGE -->
+
+
+
+            <!-- NOTIFICATIONS SETTINGS PAGE -->
+            <div data-role="page" id="notiset">
+
+                <div data-role="header" class="header">
+                    <div class="top-bar"></div>
+                    <ul class="header-menu-list">
+                        <a href="#" data-rel="back" data-transition="slide" data-direction="reverse">
+                            <li class="menu-icon ss-navigateleft"></li>
+                        </a>
+                        <div class="middle-icons">
+                            <p class="title-text-header">Configuraciones</p>
+                        </div>
+                    </ul>
+                </div>
+
+                <div data-role="content" class="news-content">
+                    
+                    <!-- User config container -->
+                    <div class="post-container news-container">
+
+                        <!-- Notificaciones Push Container --> 
+                        <div class ="post">
+                            <div class="post-config">
+                                <div class="algo-left">
+                                    <div class="post-icon">
+                                        <span class="ss-notifications"></span>
+                                    </div>
+                                    <div class="post-notif">
+                                        <div class="post-title">Notificaciones Push</div>
+                                        <div class="post-phone2">Alertas</div>
+                                    </div>
+                                </div>   
+                                <div class="switch-container">
+                                    <input type="checkbox" data-role="flipswitch" name="flipswitch">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Notificaciones Push Container -->
+
+                        <!-- Sounds Container -->
+                        <div class ="post">
+                            <div class="post-config">
+                                <div class="algo-left">
+                                    <div class="post-icon">
+                                        <span class="ss-volumehigh"></span>
+                                    </div>
+                                    <div class="post-notif">
+                                        <div class="post-title">Sonidos</div>
+                                        <div class="post-phone2">Alertas</div>
+                                    </div>
+                                </div>   
+                                <div class="switch-container">
+                                    <input type="checkbox" data-role="flipswitch" name="flipswitch">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Sounds Container -->
+        
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="button-container button-container-middle">
+                        <li class="left-button">Sitio Web</li>
+                        <li class="right-button">Cerrar Sesión</li>
+                    </div>
+
+                </div> 
+
+            </div>
+
+            <!-- END NOTIFICATIONS SETTINGS PAGE -->
+
+
+            <!-- COURSES PAGE -->
+            <div data-role="page" id="courses">
+
+                <div data-role="header" class="header">
+                    <div class="top-bar"></div>
+                    <ul class="header-menu-list">
+                        <li class="menu-icon panel-icon ss-list"></li>
+                        <div class="middle-icons">
+                            <li class="header-icon ss-home home-link"></li>
+                            <li class="header-icon ss-calendar calendar-link"></li>
+                            <li class="header-icon ss-notifications notif-link"></li>
+                        </div>
+                        <li class="edit-icon ss-settings settings-link"></li>
+                    </ul>
+                </div>
+
+                <div data-role="content" class="news-content">
+                    <div class="fade"></div>
+                    
+                    <div data-role="collapsible" data-collapsed="true">
+                        <h4>Diseño Gráfico
+                            <div class="ss-navigatedown title-caret"></div>
+                        </h4>
+                        
+                        <ul data-role="listview" class="collapsible-list">
+                            <li data-id="0" class="active"><a href="#">Diseño Gráfico</a></li>
+                            <li data-id="1"><a href="#">Diseño Industrial</a></li>
+                            <li data-id="2"><a href="#">Arquitectura</a></li>
+                            <li data-id="3"><a href="#">Arte</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="post-container marg-right">
+                    
+                        <!-- POST COURSES-->
+                        <div class="courses-container">
+                                <img src="img/mallas/malla_diseno_grafico.png" class="courses-img">    
+                        </div>
+                        <!-- POST COURSES END -->
+
+                    </div>
+
+                </div> 
+
+                <div data-role="panel" data-animate="false" data-position="left" data-position-fixed="true" data-display="push" class="side-menu">
+                    <ul class="side-menu-list">
+                        <li class="side-menu-header">
+                            <img class="side-menu-pic settings-link" src="img/avatar2.jpg">
+                        </li>
+                        <li class="side-menu-date">14 de octubre</li>
+                        <li class="side-menu-item about-link">Universidad</li>
+                        <li class="side-menu-item directory-link">Directorio</li>
+                        <li class="side-menu-item courses-link">Malla Académica</li>
+                        <li class="side-menu-item disable">Pronto más contenidos</li>
+
+                    </ul>
+                </div><!-- /panel -->
+
+            </div>
+
+            <!-- END COURSES PAGE -->
+
+
+            <!-- TEMPLATE PAGE -->
+            <div data-role="page" id="template">
+
+                <div data-role="header" class="header">
+                    <div class="top-bar"></div>                    
+                    <ul class="header-menu-list">
+                        <li class="menu-icon panel-icon ss-list"></li>
+                        <div class="middle-icons">
+                            <li class="header-icon ss-home home-link active-icon"></li>
+                            <li class="header-icon ss-calendar calendar-link"></li>
+                            <li class="header-icon ss-notifications notif- link"></li>
+                        </div>
+                        <li class="edit-icon ss-settings settings-link"></li>
+                    </ul>
+                </div>
+
+                <div data-role="content" class="news-content">
+                    
+
+                </div> 
+
+            </div>
+
+            <!-- END TEMPLATE PAGE -->
+
+
+
+
+            <script type="text/javascript" src="phonegap.js"></script>
+            <script type="text/javascript" src="js/index.js"></script>
+            <script type="text/javascript">
+                app.initialize();
+            </script>
+
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $(document).on('tap','.circle-tutorial', function(e){
+                        $(this).toggleClass("ss-check check-active");
+                    });
+
+                    $(document).on('tap','.circle-settings', function(e){          
+                        $(this).toggleClass("ss-check check-active");
+                    });
+
+                    //routing.getUserAreas();
+
+                    if(storage.getItem("login") == "true"){
+                        window.location.hash = 'home';
+                        $.mobile.initializePage();
+                    }
+                    else{
+                        window.location.hash = 'login';
+                        $.mobile.initializePage();
+                    }
+
+                    $(document).on('pageinit', '#home', function(){ 
+                        storage.setItem("current_page", "1");
+
+                        $(".feed-scroll-container", this).bind( {
+                            iscroll_onpulldown : virtualFeedRefresh,
+                            iscroll_onpullup   : virtualFeedLoad
+                        });
+
+                        var userId = storage.getItem("id") || null
+
+                        //routing.getUserFaculties(userId);      
+                        //routing.feed(1, 20);
+                        //routing.getNotifications(15);
+
+                    });
+                                   
+                    /* Infinite Scroll Functions */
+                    function virtualFeedLoad(){
+                        var page = parseInt(storage.getItem("current_page")) + 1;
+                        storage.setItem("current_page", page.toString());
+
+                        routing.feed(page, 20);
+                    }   
+                    function virtualFeedRefresh(){
+                        alert("Refreshing Feed!");
+                    }
+                    /* End Infinite Scroll Functions */   
+
+                    $('div.system-os:not(.ios) .top-bar').remove();
+                    $("div.system-os:not(.ios) [data-role='page']").css("margin-top", "0px !important");
+
+                    /* Initialize elements */
+                    $("[data-role='collapsible']").collapsible();
+
+                    $(document).on('click', '.post-link-news', function(){
+                        var id = $(this).attr("data-id");
+                        routing.postFeed(id, this);
+                        //$.mobile.navigate("#news", { transition: "slide" });
+                    });
+
+                    $(document).on('click', '.post-notification', function(){
+                        var id = $(this).attr("data-id");
+                        routing.notification(id);
+                        // $.mobile.navigate("#notifnews", { transition: "none" });
+                    });
+
+                    $(".post-link-event").click(function(){
+                        $.mobile.navigate("#event", { transition: "none" });
+                        //$.mobile.navigate("#event", { transition: "slide" });
+                    }); 
+
+                    $(".faculty-set").click(function(){
+                        $.mobile.navigate("#facuset", { transition: "none" });
+                        //$.mobile.navigate("#event", { transition: "slide" });
+                    }); 
+
+                    $(".home-link").click(function(){
+                        $.mobile.navigate("#home", { transition: "none" });
+                    });
+
+                    $(".invite-link").click(function(){
+                        routing.feed(1, 20);
+                        routing.getNotifications(10);
+                        $.mobile.navigate("#home", { transition: "none" });
+                    });                    
+                    
+                    $(".logout-btn").click(function(){
+                        routing.logout();
+                    });                     
+
+                    /* LOGIN FLOW */
+                    $(".login-btn").click(function(){
+                        var uid = $('#uid-input').val();
+                        var pass = $('#pass-input').val();
+                        routing.login(uid, pass);             
+                    });
+
+                    $(".faculties-next").click(function(){
+                        $.mobile.navigate("#sections", { transition: "none" });     
+                    });                     
+
+                    $(".send-faculties").click(function(){
+                        var faculties = [];
+                        var elem = $(this).parents(".button-container").siblings().find(".faculties-list li div.check-active");
+
+                        $.each(elem, function(index,value){
+                            faculties.push($(value).attr("data-id"));
+                        });
+
+                        if(storage.getItem("id")){
+                            routing.postUserFaculties(storage.getItem("id"),faculties);
+                        }
+                        else {
+                            alert("Debes estar logueado para seleccionar tu perfil");
+                            $.mobile.navigate("#login", { transition: "none" });
+                        }
+                    });
+
+                    $(".sections-next").click(function(){
+                        //routing.feed(1, 10);
+                        $.mobile.navigate("#home", { transition: "none" });
+                    });  
+                    /* END LOGIN FLOW */
+
+                    $(".notif-link").click(function(){
+                        $.mobile.navigate("#notifications", { transition: "none" });
+                    });  
+
+                    $("#send-comment").click(function(){
+                        var text = $('#comment-text').val();
+                        var id = $('#comments .news-container').attr('pub-id');
+
+                        routing.postComment(id, text);
+                    });     
+
+                    $(".refresh-link").click(function(){
+                        var id = $('#comments .news-container').attr('pub-id');
+
+                        routing.getComments(id);
+                    });   
+
+                    $(document).on('click', '.delete-comment', function(){
+                        var id = $('#comments .news-container').attr('pub-id');
+                        var comment_id = $(this).attr('data-id');
+
+                        routing.deleteComment(id, comment_id);
+                    }); 
+
+                    $(".about-link").click(function(){
+                        $.mobile.navigate("#about");
+                    });
+
+                    $(".facebook-link").click(function(){
+                        var title = $(this).closest('.footer').siblings('.news-content').find('.news-title').text();
+                        var picture = $(this).closest('.footer').siblings('.news-content').find('.post-image img').attr('src');
+
+                        window.plugins.socialsharing.shareViaFacebook(title, picture, 'http://www.nodoapp.com',
+                            function(){
+                            console.log('share ok'
+                            )}, 
+                            function(errormsg){
+                                alert(errormsg)
+                            });
+                    });
+
+                    $(".likes-link").click(function(){
+                        var elem = $(this);
+                        var like_elem = elem.siblings('.likes-number');
+                        var likes = parseInt(like_elem.text());
+                        var id = elem.closest('.footer').siblings('.news-content').find('.post-news').attr('data-id');
+                        
+                        if(elem.hasClass('liked')){
+                            like_elem.text((likes-1).toString());
+                            routing.like(id, '00', '1');
+                        }
+                        else{
+                            like_elem.text((likes+1).toString());
+                            routing.like(id, '00', '0');
+                        }
+
+                        elem.toggleClass('red2 liked');
+                        
+                    });
+
+                    $(".comments-link").click(function(){
+                        var id = $('#news .post-news').attr('data-id');
+                        $('#comments .news-container').attr('pub-id', id);
+                        routing.getComments(id);
+
+                        $.mobile.navigate("#comments");
+                    });
+
+                    $(".nod-link").click(function(){
+                        $.mobile.navigate("#nod");
+                    });
+
+                    $(".prof-link").click(function(){
+                        $.mobile.navigate("#prof");
+                    });
+
+                    $(".directory-link").click(function(){
+                        $.mobile.navigate("#directory");
+                    });
+
+                    $(".email-content").click(function(e){
+                        e.stopPropagation();
+                    });
+                    $(".geo-content").click(function(e){
+                        e.stopPropagation();
+                    });
+
+                    $(".courses-link").click(function(){
+                        $.mobile.navigate("#courses");
+                    });
+
+                    $(".notiset-link").click(function(){
+                        $.mobile.navigate("#notiset");
+                    });
+
+                    $(".settings-link").click(function(){
+                        $.mobile.navigate("#settings");
+                    });
+
+                    $(".panel-icon").click(function(){
+                        $(this).closest("div[data-role='page']").find(".side-menu").panel("toggle");
+                    });
+
+                    $('.side-menu-list li').click(function(){
+                        $(this).closest('.side-menu').panel("close");
+                    });   
+
+                    $(".side-menu").on("panelbeforeclose", function(event, ui){
+                        var page = $(this).closest("div[data-role='page']");
+
+                        page.find(".middle-icons .active-icon").removeClass("open-panel");
+                        page.find(".ui-panel-wrapper .header").css("left", "0px");
+                        page.find(".panel-icon").css("background", "#fff");
+                        page.find(".fade").css("display", "none");
+                    });      
+
+                    $(window).on("navigate", function(event, data){
+                        $("div[data-role='collapsible']").collapsible("collapse");
+                    });          
+
+
+                    $(".side-menu").on("panelbeforeopen", function(event, ui){
+                        var page = $(this).closest("div[data-role='page']");
+
+                        if($(window).width() < 400){
+                            page.find(".ui-panel-wrapper .header").css("left", "-185px");
+                            page.find(".middle-icons .active-icon").addClass("open-panel");
+                        }
+                        else if($(window).width() < 481){
+                            page.find(".ui-panel-wrapper .header").css("left", "-278px");
+                            page.find(".middle-icons .active-icon").addClass("open-panel");
+                        }
+                        else if($(window).width() < 641){
+                            page.find(".ui-panel-wrapper .header").css("left", "-324px");
+                            page.find(".middle-icons .active-icon").addClass("open-panel");
+                        }
+                        else{
+                            page.find(".ui-panel-wrapper .header").css("left", "-370px");
+                            page.find(".middle-icons .active-icon").addClass("open-panel");       
+                        }
+
+                        page.find(".panel-icon").css("background", "#eaeaea");
+                        page.find(".fade").css("display", "block");
+                    });
+
+                    $('#about .collapsible-list li').click(function(){
+                        $('#about .collapsible-list li.active').removeClass("active");
+
+                        var name = $(this).children('a').text();
+                        $("#about [data-role='collapsible'] h4 a").html(name + "<div class='ss-navigatedown title-caret'></div><span class='ui-collapsible-heading-status'> click to expand contents</span>");
+
+                        var id = $(this).attr("data-id");
+
+                        $("#about .collapsible-list li[data-id='"+ id +"']").addClass("active");
+
+                        uniJson.forEach(function(item){
+                            if(item._id == parseInt(id)){
+                                $('#about .picture-full img').attr("src", item.picture);
+                                var innerText = '';
+
+                                item.blocks.forEach(function(block){
+                                    innerText += "<em class='helvmed'>"+ block.title +"</em></br></br>";
+
+                                    if(block.text != "")
+                                        innerText += (block.text + "</br></br>");
+                                });
+
+                                $('#about .news-about').html(innerText);
+                            }
+                        });
+
+                        $("#about [data-role='collapsible'] h4 a").click();
+                    });
+
+                    $('#courses .collapsible-list li').click(function(){
+                        $('#courses .collapsible-list li.active').removeClass("active");
+
+                        var name = $(this).children('a').text();
+                        $("#courses [data-role='collapsible'] h4 a").html(name + "<div class='ss-navigatedown title-caret'></div><span class='ui-collapsible-heading-status'> click to expand contents</span>");
+
+                        var id = $(this).attr("data-id");
+
+                        $("#courses .collapsible-list li[data-id='"+ id +"']").addClass("active");
+
+                        courseJson.forEach(function(item){
+                            if(item._id == parseInt(id)){
+                                $('#courses .courses-container img').attr("src", item.path);
+                            }
+                        });
+
+                        $("#courses [data-role='collapsible'] h4 a").click();
+                    });
+
+                    $(".post-link-faculty").click(function(){
+                        var id = $(this).attr("data-id");
+                        $('#directory-show .post-container').empty();
+
+                        phoneJson.forEach(function(item){
+                            if(item._id == parseInt(id)){
+                                $('#directory-show .title-text-header').text(item.name);
+
+                                item.faculties.forEach(function(faculty){
+                                    $('#directory-show .post-container').append("<div class ='post'> <div class='post-top pad-set'> <div class='post-time'> <div class='"+ item.color +" circle'></div> <div class='time-content'><a href='mailto:"+ faculty.email +"'>"+ faculty.email +"</a></div> </div> </div> <div class='directory-config'> <div class='post-icon2'> <a href='tel:"+ faculty.phone +"'><span class='ss-phone'></span></a> </div> <div class='post-desc'> <div class='post-title marg-set'>"+ faculty.name +"</div> <div class='post-phone'>"+ faculty.phone +"</div> </div> </div> </div>");
+                                });
+                            }
+                        });
+
+                        
+                        $.mobile.navigate("#directory-show", { transition: "none" });
+                        //$.mobile.navigate("#directory-show", { transition: "slide" });
+                    }); 
+    
+                    /* FECHA EN ESPAÑOL */
+                    var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+                    var diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+                    
+                    var f = new Date();
+                    $('.side-menu-date').html((diasSemana[f.getDay()] + " " + f.getDate() + " de " + meses[f.getMonth()]));
+                    /* END FECHA EN ESPAÑOL */
+                });
+            </script>
         </div>
-        <script type="text/javascript" src="phonegap.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
     </body>
 </html>
