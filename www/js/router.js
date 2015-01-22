@@ -243,7 +243,7 @@ routing.feed = function(page, entries){
                 var dateStr = date.getDate().toString() + " de " + meses[date.getMonth()] + " de " + date.getFullYear().toString();
                 // var picture = value.picture == null ? 'img/noticias/news10.jpg' : value.picture;
 
-                $('#home .post-container').append("<div class='post post-link-news' data-id='"+ value.code +"'><div class='post-top'><div class='post-time'><div class='"+ color +" circle'></div><div class='time-content'>"+ tag +"</div> </div></div><div class='post-bottom'><div class='post-desc'><div class='post-title'>"+ value.name +"</div><div class='post-date'>"+ truncate(value.desc, 150) +"</div><div class='post-title post-title-date'>Fecha Cierre: <strong>"+ dateStr +"</strong></div></div></div></div>");
+                $('#home .post-container').append("<div class='post post-link-news' data-id='"+ value.code +"'><div class='post-top'><div class='post-time'><div class='"+ color +" circle'></div><div class='time-content'>"+ tag +"</div> </div></div><div class='post-bottom'><div class='post-desc'><div class='post-title tender-title'>"+ value.name +"</div><div class='post-date'>"+ truncate(value.desc, 150) +"</div><div class='post-title post-title-date'>Fecha Cierre: <strong>"+ dateStr +"</strong></div></div></div></div>");
             });
             $("#home .feed-scroll-container").data("mobileIscrollview").resizeWrapper();
             $("#home .feed-scroll-container").data("mobileIscrollview").refresh();
@@ -261,7 +261,7 @@ routing.postFeed = function(post_id, element){
 
     var color = $(element).find('.circle').attr('class').split(' ')[0] + ' circle';
     $('#news .circle').attr('class', color);
-    $('#news .news-title').text($(element).find('.post-title').text());
+    $('#news .news-title').text($(element).find('.post-title.tender-title').text());
     $('#news .time-content').text($(element).find('.time-content').text());
 
     var url = "http://api.mercadopublico.cl/servicios/v1/publico/licitaciones.jsonp?codigo="+ post_id +"&ticket=0942223B-FAE2-4060-950E-36D16916F7E2";
@@ -286,6 +286,8 @@ routing.postFeed = function(post_id, element){
                 $("#news .tender-items").append("<div class='tender-item'><ul><li><strong>Producto:</strong> "+ item.NombreProducto +"</li><li><strong>Cantidad:</strong> "+ item.Cantidad +"</li><li><strong>Descripción:</strong> "+ item.Descripcion +"</li></ul></div>")
             });
 
+            $("#home .fade").css("display", "none");
+            $("#home .loading-gif").css("display", "none");
             $.mobile.navigate("#news", { transition: "none" });
         }
     });

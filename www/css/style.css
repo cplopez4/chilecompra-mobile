@@ -73,6 +73,13 @@ input:-moz-placeholder.placeholder-fix {
     min-width: 95%;
 }
 
+.loading-gif{
+    display: none;
+    position: fixed;
+    left: 30%;
+    top: 40%;
+    z-index: 99;
+}
 /* COLORES */
 .red2  a{
     color: #e83a47 !important;
@@ -426,7 +433,7 @@ input:-moz-placeholder.placeholder-fix {
     right: 0px;
     margin: auto;
     height: 88px;
-    width: 300px;
+    width: 200px;
 }
 
 /* News Show */
@@ -687,7 +694,8 @@ input:-moz-placeholder.placeholder-fix {
 .logo-container{
     height: 100px;
     padding-top: 175px;
-    padding-bottom: 45px;
+    margin-bottom: 45px;
+    border-bottom: 1px solid white;
 }
 .vertical-line{
     border-right: 1px solid white;
@@ -1607,7 +1615,7 @@ input:-moz-placeholder.placeholder-fix {
     }
     .middle-icons{
         height: 77px;
-        width: 264px; /*( .header-menu-list li width x 3 )*/
+        width: 176px; /*( .header-menu-list li width x 2 )*/
     }
     /* Event page */
     /* Activity */
@@ -1868,7 +1876,7 @@ input:-moz-placeholder.placeholder-fix {
     .logo-container{
         height: 88px;
         padding-top: 154px;
-        padding-bottom: 39px;
+        margin-bottom: 39px;
     }
     .vertical-line{
         border-right: 1px solid white;
@@ -2419,7 +2427,7 @@ input:-moz-placeholder.placeholder-fix {
     }
     .middle-icons{
         height: 66px;
-        width: 225px; /*( .header-menu-list li width x 3 )*/
+        width: 150px; /*( .header-menu-list li width x 2 )*/
     }
     /* Event page */
     /* Activity */
@@ -2685,7 +2693,7 @@ input:-moz-placeholder.placeholder-fix {
     .logo-container{
         height: 75px;
         padding-top: 132px;
-        padding-bottom: 33px;
+        margin-bottom: 33px;
     }
     .vertical-line{
         border-right: 1px solid white;
@@ -3238,7 +3246,7 @@ input:-moz-placeholder.placeholder-fix {
     }
     .middle-icons{
         height: 44px;
-        width: 150px; /*( .header-menu-list li width x 3 )*/
+        width: 100px; /*( .header-menu-list li width x 2 )*/
     }
     /* Event page */
     /* Activity */
@@ -3540,7 +3548,7 @@ input:-moz-placeholder.placeholder-fix {
     .logo-container{
         height: 50px;
         padding-top: 88px;
-        padding-bottom: 22px;
+        margin-bottom: 35px;
     }
     .vertical-line{
         border-right: 1px solid white;
@@ -3568,8 +3576,8 @@ input:-moz-placeholder.placeholder-fix {
         display: block;
         margin-left: 10px;
         margin-right: auto;
-        width: 130px;
-        margin-top: 14px;
+        width: 118px;
+        margin-top: 17px;
     }
     .ui-shadow-inset {
         box-shadow: none;

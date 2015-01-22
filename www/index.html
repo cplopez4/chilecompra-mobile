@@ -51,7 +51,6 @@
                         <li class="menu-icon panel-icon ss-list"></li>
                         <div class="middle-icons">
                             <li class="header-icon ss-home active-icon home-link"></li>
-                            <li class="header-icon ss-calendar calendar-link"></li>
                             <li class="header-icon ss-notifications notif-link"></li>
                         </div>
                         <li class="edit-icon ss-settings settings-link"></li>
@@ -60,14 +59,17 @@
 
                 <div data-role="content" class="feed-content">
                     <div class="fade"></div>
+                    <div class="loading-gif">
+                        <img src="img/loading.gif">
+                    </div>
 
                     <div data-role="collapsible" data-collapsed="true" data-iscroll-fixed>
                         <h4>Más reciente <div class="ss-navigatedown title-caret"></div>
                         </h4>
                         
                         <ul data-role="listview">
-                            <li><a href="#">Actividades</a></li>
-                            <li><a href="#">Noticias</a></li>
+                            <!-- <li><a href="#">Fecha de cierre</a></li>
+                            <li><a href="#">Fecha de creación</a></li> -->
                         </ul>
                     </div>
 
@@ -350,7 +352,7 @@
                             
                             <div class="description-text">
                                 <br>
-                                    De las siguientes facultades ¿De cuáles te gustaría recibir noticias, eventos y actividades?
+                                    De las siguientes áreas ¿De cuáles te gustaría recibir notificaciones de nuevas licitaciones?
                                 <br></br>
                             </div>
 
@@ -360,6 +362,30 @@
                                     <div class="orange big-circle ss-check check-active"></div>
                                     <div class="faculty-text">Arquitectura, Arte y Diseño</div>
                                 </li> -->
+                                <li>
+                                    <div class="orange big-circle"></div>
+                                    <div class="faculty-text">Consumibles</div>
+                                </li>
+                                <li>
+                                    <div class="green big-circle"></div>
+                                    <div class="faculty-text">Maquinaria</div>
+                                </li>
+                                <li>
+                                    <div class="yellow big-circle"></div>
+                                    <div class="faculty-text">Equipamiento</div>
+                                </li>
+                                <li>
+                                    <div class="red big-circle"></div>
+                                    <div class="faculty-text">Servicios</div>
+                                </li>
+                                <li>
+                                    <div class="purple big-circle"></div>
+                                    <div class="faculty-text">Mobiliario</div>
+                                </li>
+                                <li>
+                                    <div class="blue big-circle"></div>
+                                    <div class="faculty-text">Otros</div>
+                                </li>
                             </ul>
                             <br></br>
                         </div>
@@ -587,7 +613,6 @@
                         <li class="menu-icon panel-icon ss-list"></li>
                         <div class="middle-icons">
                             <li class="header-icon ss-home home-link"></li>
-                            <li class="header-icon ss-calendar calendar-link"></li>
                             <li class="header-icon ss-notifications notif-link active-icon">
                                 <!-- <span class="notif-circle">4</span> -->
                             </li>
@@ -905,7 +930,6 @@
                         <li class="menu-icon panel-icon ss-list"></li>
                         <div class="middle-icons">
                             <li class="header-icon ss-home home-link"></li>
-                            <li class="header-icon ss-calendar calendar-link"></li>
                             <li class="header-icon ss-notifications notif-link"></li>
                         </div>
                         <li class="edit-icon ss-settings settings-link"></li>
@@ -999,7 +1023,6 @@
                         <li class="menu-icon panel-icon ss-list"></li>
                         <div class="middle-icons">
                             <li class="header-icon ss-home home-link"></li>
-                            <li class="header-icon ss-calendar calendar-link"></li>
                             <li class="header-icon ss-notifications notif-link"></li>
                         </div>
                         <li class="edit-icon ss-settings settings-link"></li>
@@ -1504,7 +1527,6 @@
                         <li class="menu-icon panel-icon ss-list"></li>
                         <div class="middle-icons">
                             <li class="header-icon ss-home home-link"></li>
-                            <li class="header-icon ss-calendar calendar-link"></li>
                             <li class="header-icon ss-notifications notif-link"></li>
                         </div>
                         <li class="edit-icon ss-settings settings-link"></li>
@@ -1567,7 +1589,6 @@
                         <li class="menu-icon panel-icon ss-list"></li>
                         <div class="middle-icons">
                             <li class="header-icon ss-home home-link active-icon"></li>
-                            <li class="header-icon ss-calendar calendar-link"></li>
                             <li class="header-icon ss-notifications notif- link"></li>
                         </div>
                         <li class="edit-icon ss-settings settings-link"></li>
@@ -1652,6 +1673,9 @@
                     $("[data-role='collapsible']").collapsible();
 
                     $(document).on('click', '.post-link-news', function(){
+                        $("#home .fade").css("display", "block");
+                        $("#home .loading-gif").css("display", "block");
+
                         var id = $(this).attr("data-id");
                         routing.postFeed(id, this);
                         //$.mobile.navigate("#news", { transition: "slide" });
